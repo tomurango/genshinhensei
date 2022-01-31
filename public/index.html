@@ -56,11 +56,49 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
 
   </head>
   <body>
-    <h1>原神編成</h1>
+    <div id="login_card_div" style="display: none; position: fixed; height: 100%; width: 100%; left: 0px; text-align: center;z-index: 5;top: 0px;background-color: #ffffff;">
+      <!--戻るボタン-->
+      <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" style="position: absolute; top: 0px;left: 0px" onclick="login_card_display_back()">clear</button>
+      <!--google login button-->
+      <img id="google_login" src="images/google_login_button/btn_google_signin_light_normal_web@2x.png" style="display: inline-block; width: 60%; max-width: 300px; margin-top: 100px;" onclick="google_click()">
+      
+      <!--div id="google_div" style="background-size: contain;background-repeat: no-repeat;background-position: center center;display: inline-block; width: 60%; max-width: 300px; margin-top: 100px;" onclick="google_click()"></div-->
+      
+      <!--ログアウトボタン-->
+      <br>
+      <button id="logout_button" style="display: none;" class="mdc-button mdc-button--outlined" onclick="log_out()">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">ログアウト</span>
+      </button>
+    </div>
+
+    <header id="top_header" class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <button id="login_icon" onclick="drawer_open()" style="display:none; background-color:#ffffff; height:32px; width:32px; padding:0px; overflow: hidden; border:none; border-radius: 50%;left: 6px; position:relative;"><img id="usericon" width="32" height="32" alt="Your Icon" onerror="this.src='/images/nanikaerror.jpg'" ></button>
+          <!--
+          <button id="login_button" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="login" onclick="login_card_display()">account_circle</button>
+          -->
+          <button id="login_button" class="mdc-button mdc-button--outlined" style="border-color: #ffffff; color: #ffffff;" onclick="login_card_display()">
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label">ログイン</span>
+          </button>
+
+          <span class="mdc-top-app-bar__title">Genshin Hensei</span>
+          
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+          <button style="display: block" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
+          <button style="display: none" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
+        </section>
+      </div>
+    </header>
 
   </body>
+  
+  <script src="js/login.js"></script>
 </html>

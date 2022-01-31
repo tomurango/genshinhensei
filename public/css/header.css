@@ -1,0 +1,68 @@
+html{
+    height: 100%;
+    width: 100%;
+    /*safari ios のバウンス？を止めるための施し*/
+    overflow: hidden;
+}body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #ffffff;
+    /*overflow: hidden; safari ios バウンス対策でauto にするが、そもそもhidden にしていた深い理由が不明なため要注意*/
+    /*変えたあと試したけど、結局変化ないんすけどだいじょぶっすかねぇ*/
+    overflow: auto;
+}:root{
+    --mdc-theme-primary: #003366;
+    --mdc-theme-secondary: #663300;
+    --mdc-theme-on-primary: #ffffff;
+}
+#top_header{
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,33,66);
+}
+
+
+@media screen and (min-width:600px){
+    .top_level_page{
+        height: calc(100vh - 64px);
+    }#bottom_app_bar{
+        display: none;
+    }#login_icon{
+        display: none !important;
+    }#nav_pc{
+        display: flex;
+        position: fixed;
+        padding-left: 60px;
+        flex-direction: column;
+        top: 20px;
+    }#main_area{
+        left: 120px;
+        position: relative;
+        width: 500px;
+    }#top_header{
+        width: 500px;
+        position: relative;
+        left: 120px;
+        box-shadow: none;
+    }
+}@media screen and (max-width:599px){
+    .top_level_page{
+        height: calc(100vh - 106px);
+    }#bottom_app_bar{
+        display: block;
+    }#nav_pc{
+        display: none;
+    }
+}.top_level_page{
+    width: 100%;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    /* スクロールを滑らかにする */
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;    /* IE, Edge 対応 */
+    scrollbar-width: none;       /* Firefox 対応 */
+}.top_level_page::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+    display:none;
+}
