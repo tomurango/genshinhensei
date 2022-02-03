@@ -105,6 +105,8 @@ function signedin_collect(userinfo){
     signed_intab(userinfo);
     //ログインカード内のボタンを表示する
     document.getElementById("logout_button").style.display = "block";
+    //投稿用のfabを表示する
+    document.getElementById("open_dialog_fab").style.display = "flex";
 }
 
 //tabの見た目を変える

@@ -28,9 +28,13 @@ html{
         height: calc(100vh - 64px);
     }#bottom_app_bar{
         display: none;
-    }#login_icon{
+    }
+    /*なぜ非表示にしていたか不明
+    #login_icon{
         display: none !important;
-    }#nav_pc{
+    }
+    */
+    #nav_pc{
         display: flex;
         position: fixed;
         padding-left: 60px;
@@ -45,6 +49,8 @@ html{
         position: relative;
         left: 120px;
         box-shadow: none;
+    }#open_dialog_fab{
+        left: 480px;
     }
 }@media screen and (max-width:599px){
     .top_level_page{
@@ -53,6 +59,8 @@ html{
         display: block;
     }#nav_pc{
         display: none;
+    }#open_dialog_fab{
+        right: 16px;
     }
 }.top_level_page{
     width: 100%;
@@ -65,4 +73,10 @@ html{
     scrollbar-width: none;       /* Firefox 対応 */
 }.top_level_page::-webkit-scrollbar {  /* Chrome, Safari 対応 */
     display:none;
+}
+
+#open_dialog_fab{
+    position: fixed;
+    bottom: 16px;
+    background-color: var(--mdc-theme-primary);
 }
