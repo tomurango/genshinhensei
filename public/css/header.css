@@ -51,6 +51,12 @@ html{
         box-shadow: none;
     }#open_dialog_fab{
         left: 480px;
+    }main{
+        width: 500px;
+        position: relative;
+        left: 120px;
+    }.team_info_container{
+        padding: 4px;
     }
 }@media screen and (max-width:599px){
     .top_level_page{
@@ -61,6 +67,11 @@ html{
         display: none;
     }#open_dialog_fab{
         right: 16px;
+    }
+    #card_container{
+        flex-direction: column;
+    }.team_info_container{
+        padding: 16px;
     }
 }.top_level_page{
     width: 100%;
@@ -79,4 +90,12 @@ html{
     position: fixed;
     bottom: 16px;
     background-color: var(--mdc-theme-primary);
+}
+
+#card_container{
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+}.team_name{
+    margin: 0px;
 }
