@@ -99,3 +99,11 @@ html{
 }.team_name{
     margin: 0px;
 }
+
+
+.team_image{
+    background-image: url(../images/membar_icons/amber.jpg), url(../images/membar_icons/amber.jpg), url(../images/membar_icons/amber.jpg), url(../images/membar_icons/amber.jpg);
+    background-position: 0 0, 33.3% 0, 66.7% 0, 100% 0;
+    background-size: 25% auto, 25% auto, 25% auto, 25% auto;
+}
+
