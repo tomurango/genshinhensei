@@ -57,6 +57,10 @@ html{
         left: 120px;
     }.team_info_container{
         padding: 4px;
+    }#card_container{
+        justify-content: center;
+    }.team_card{
+        min-width: 200px;
     }
 }@media screen and (max-width:599px){
     .top_level_page{
@@ -70,6 +74,7 @@ html{
     }
     #card_container{
         flex-direction: column;
+        justify-content: center;
     }.team_info_container{
         padding: 16px;
     }
@@ -99,7 +104,6 @@ html{
 }.team_name{
     margin: 0px;
 }
-
 
 .team_image{
     background-image: url(../images/membar_icons/amber.jpg), url(../images/membar_icons/amber.jpg), url(../images/membar_icons/amber.jpg), url(../images/membar_icons/amber.jpg);
