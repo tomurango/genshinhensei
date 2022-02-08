@@ -104,7 +104,7 @@ function signedin_collect(userinfo){
     //document.getElementById("yes_user").style.display = "block";
     signed_intab(userinfo);
     //ログインカード内のボタンを表示する
-    document.getElementById("logout_button").style.display = "block";
+    document.getElementById("logout_button").style.display = "inline-block";
     //投稿用のfabを表示する
     document.getElementById("open_dialog_fab").style.display = "flex";
 }
@@ -115,5 +115,4 @@ function signed_intab(userinfo){
     document.getElementById("login_icon").style.display = "block";
     document.getElementById("login_button").style.display = "none";
 }
-
 

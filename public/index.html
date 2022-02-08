@@ -75,11 +75,17 @@
         <span class="mdc-button__label">ログアウト</span>
       </button>
     </div>
+    
+    <div id="create_team_div" style="display: none; position: fixed; height: 100%; width: 100%; left: 0px; text-align: center;z-index: 5;top: 0px;background-color: #ffffff;">
+      <!--戻るボタン-->
+      <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" style="position: absolute; top: 0px;left: 0px" onclick="open_dialog_fab_back()">clear</button>
+      <h1>この画面でチームを作る</h1>
+    </div>
 
     <header id="top_header" class="mdc-top-app-bar">
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-          <button id="login_icon" onclick="drawer_open()" style="display:none; background-color:#ffffff; height:32px; width:32px; padding:0px; overflow: hidden; border:none; border-radius: 50%;left: 6px; position:relative;"><img id="usericon" width="32" height="32" alt="Your Icon" onerror="this.src='/images/nanikaerror.jpg'" ></button>
+          <button id="login_icon" onclick="login_card_display()" style="display:none; background-color:#ffffff; height:32px; width:32px; padding:0px; overflow: hidden; border:none; border-radius: 50%;left: 6px; position:relative;"><img id="usericon" width="32" height="32" alt="Your Icon" onerror="this.src='/images/nanikaerror.jpg'" ></button>
           <!--
           <button id="login_button" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="login" onclick="login_card_display()">account_circle</button>
           -->
@@ -123,7 +129,7 @@
       </div>
     </main>
 
-    <button id="open_dialog_fab" class="mdc-fab mdc-fab--extended" style="display: none;">
+    <button id="open_dialog_fab" class="mdc-fab mdc-fab--extended" onclick="open_dialog_fab()" style="display: none;">
       <div class="mdc-fab__ripple"></div>
       <span class="material-icons mdc-fab__icon">add</span>
       <span class="mdc-fab__label">投稿する</span>
@@ -132,4 +138,5 @@
   </body>
   
   <script src="js/login.js"></script>
+  <script src="js/createteam.js"></script>
 </html>
