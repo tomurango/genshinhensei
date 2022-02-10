@@ -111,3 +111,9 @@ html{
     background-size: 25% auto, 25% auto, 25% auto, 25% auto;
 }
 
+.dialog_title{
+    position: absolute;
+    margin: 0px;
+    top: 12px;
+    left: 48px;
+}
