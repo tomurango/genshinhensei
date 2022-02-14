@@ -117,3 +117,35 @@ html{
     top: 12px;
     left: 48px;
 }
+
+.subtext{
+    font-size: 0.8em;
+    color: #757575;
+}
+
+#create_team_div{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    z-index: 5;
+    top: 0px;
+    background-color: #ffffff;
+    padding: 48px 16px;
+    box-sizing: border-box;
+}#create_area_one{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}#choiced_wrapper{
+    position: relative;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-image: url(../images/empty_cal.jpg), url(../images/empty_cal.jpg), url(../images/empty_cal.jpg), url(../images/empty_cal.jpg);
+    background-position: 0 50%, 33.3% 50%, 66.7% 50%, 100% 50%;
+    background-size: 25% auto, 25% auto, 25% auto, 25% auto;
+}#choiced_wrapper::before {
+    margin-top: 56.25%;
+    display: block;
+    content: "";
+}
