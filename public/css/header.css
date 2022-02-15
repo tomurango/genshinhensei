@@ -149,3 +149,13 @@ html{
     display: block;
     content: "";
 }
+
+#team_name_input{
+    border: none;
+    font-size: 18px;
+    margin-bottom: 50px;
+}#team_exp_input{
+    border: none;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
