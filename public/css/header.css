@@ -61,6 +61,11 @@ html{
         justify-content: center;
     }.team_card{
         min-width: 200px;
+    }#craete_area_wrapper{
+        display: flex;
+        flex-direction: row;
+    }#create_area_one{
+        width: 300px;
     }
 }@media screen and (max-width:599px){
     .top_level_page{
@@ -77,6 +82,9 @@ html{
         justify-content: center;
     }.team_info_container{
         padding: 16px;
+    }#craete_area_wrapper{
+        display: flex;
+        flex-direction: column;
     }
 }.top_level_page{
     width: 100%;
@@ -133,10 +141,19 @@ html{
     background-color: #ffffff;
     padding: 48px 16px;
     box-sizing: border-box;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }#create_area_one{
     position: relative;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+}#create_area_two{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }#choiced_wrapper{
     position: relative;
     box-sizing: border-box;
@@ -157,5 +174,4 @@ html{
 }#team_exp_input{
     border: none;
     font-size: 18px;
-    margin-bottom: 50px;
 }

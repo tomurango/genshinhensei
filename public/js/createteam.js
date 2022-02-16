@@ -1,5 +1,5 @@
 function open_dialog_fab(){
-    document.getElementById("create_team_div").style.display = "block";
+    document.getElementById("create_team_div").style.display = "flex";
 }
 
 function open_dialog_fab_back(){

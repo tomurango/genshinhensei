@@ -80,17 +80,20 @@
       <!--戻るボタン-->
       <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" style="position: absolute; top: 0px;left: 0px" onclick="open_dialog_fab_back()">clear</button>
       <p class="dialog_title">投稿チーム作成</p>
-      <div id="create_area_one">
-        <p class="subtext">キャラ選択</p>
-        <div id="choiced_wrapper" onclick="choice_diakog()">
-          <!--ここに画像が入る-->
+
+      <div id="craete_area_wrapper">
+        <div id="create_area_one">
+          <p class="subtext">キャラ選択</p>
+          <div id="choiced_wrapper" onclick="choice_diakog()">
+            <!--ここに画像が入る-->
+          </div>
         </div>
-      </div>
-      <div id="create_area_two">
-        <p class="subtext">チーム名</p>
-        <input id="team_name_input" placeholder="チーム名を入力">
-        <p class="subtext">説明</p>
-        <input id="team_exp_input" placeholder="チーム説明を入力">
+        <div id="create_area_two">
+          <p class="subtext">チーム名</p>
+          <input id="team_name_input" placeholder="チーム名を入力">
+          <p class="subtext">説明</p>
+          <textarea id="team_exp_input" placeholder="説明を入力" name="" cols="30" rows="10"></textarea>
+        </div>
       </div>
       
       <div>
