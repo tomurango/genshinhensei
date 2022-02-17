@@ -7,5 +7,9 @@ function open_dialog_fab_back(){
 }
 
 function choice_diakog(){
-    console.log("キャラ選択のダイアログを開く");
+    //console.log("choice_membar_dialog");
+    choice_membar_dialog.open();
 }
+
+
+var choice_membar_dialog = new mdc.dialog.MDCDialog(document.querySelector('#choice_membar_dialog'));

@@ -149,6 +149,7 @@ html{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    margin-right: 16px;
 }#create_area_two{
     position: relative;
     display: flex;
