@@ -186,8 +186,8 @@ html{
     box-sizing: border-box;
     background-repeat: no-repeat;
     /*background-image: url(../images/empty_cal.jpg), url(../images/empty_cal.jpg), url(../images/empty_cal.jpg), url(../images/empty_cal.jpg);*/
-    background-position: 0 50%, 33.3% 50%, 66.7% 50%, 100% 50%;
-    background-size: 25% auto, 25% auto, 25% auto, 25% auto;
+    background-position: center 25%;
+    background-size: cover;
 }.a_mem_image::before {
     margin-top: 100%;
     display: block;
