@@ -180,6 +180,7 @@ html{
 #cara_dia_wrapper{
     position: relative;
     display: flex;
+    flex-wrap: wrap;
 }.a_mem_image{
     width: 60px;
     position: relative;
