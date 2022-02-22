@@ -1,3 +1,4 @@
+/*fire*/
 #choise_ambar{
     background-image: url(../images/membar_icons/amber.jpg);
 }#choise_sinen{
@@ -18,4 +19,19 @@
     background-image: url(../images/membar_icons/klee.jpg);
 }#choise_hutao{
     background-image: url(../images/membar_icons/hutao.jpg);
+}
+
+/*water*/
+#choise_yukuaki{
+    background-image: url(../images/membar_icons/yukua.jpg);
+}#choise_babara{
+    background-image: url(../images/membar_icons/babara.jpg);
+}#choise_tarutariya{
+    background-image: url(../images/membar_icons/tarutaru.jpg);
+}#choise_mona{
+    background-image: url(../images/membar_icons/mna.jpg);
+}#choise_kokomi{
+    background-image: url(../images/membar_icons/kokomi.jpg);
+}#choise_ayato{
+    background-image: url(../images/membar_icons/ayato.jpg);
 }
