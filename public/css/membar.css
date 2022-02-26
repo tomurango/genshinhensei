@@ -94,3 +94,28 @@
 }#choise_sinkaku{
     background-image: url(../images/membar_icons/sinkaku.jpg);
 }
+
+/*rock*/
+#choise_goro{
+    background-image: url(../images/membar_icons/goro.jpg);
+}#choise_noel{
+    background-image: url(../images/membar_icons/noel.jpg);
+}#choise_gyoko{
+    background-image: url(../images/membar_icons/gyoko.jpg);
+}#choise_unkin{
+    background-image: url(../images/membar_icons/unkin.jpg);
+}#choise_arubedo{
+    background-image: url(../images/membar_icons/arubedo.jpg);
+}#choise_itto{
+    background-image: url(../images/membar_icons/itto.jpg);
+}#choise_shori{
+    background-image: url(../images/membar_icons/shori.jpg);
+}
+
+/*traveler*/
+#choise_sora{
+    background-image: url(../images/membar_icons/sora.jpg);
+}#choise_hotaru{
+    background-image: url(../images/membar_icons/hotaru.jpg);
+}
+

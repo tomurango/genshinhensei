@@ -177,19 +177,49 @@ html{
     font-size: 18px;
 }
 
-#cara_dia_wrapper{
+#choice_membar_dialog{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    z-index: 6;
+    top: 0px;
+    background-color: #ffffff;
+    padding: 48px 0px 0px 0px;
+    box-sizing: border-box;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}#cara_dia_wrapper{
+    /*
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    */
+    height: calc(100vh - 96px);
+    overflow-y: scroll;
+    padding: 0px;
+    box-sizing: content-box;
+    margin: 0px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33vmin);
+    grid-auto-rows: 33vmin;
+    grid-auto-flow: dense;
 }.a_mem_image{
-    width: 60px;
+    /*
+    width: 60px;*/
     position: relative;
     box-sizing: border-box;
     background-repeat: no-repeat;
-    /*background-image: url(../images/empty_cal.jpg), url(../images/empty_cal.jpg), url(../images/empty_cal.jpg), url(../images/empty_cal.jpg);*/
     background-position: center 25%;
     background-size: cover;
-}.a_mem_image::before {
+    
+    /*box-sizing: content-box;
+    background-color: #000032;
+    margin: 1px;
+}
+.a_mem_image::before {
     margin-top: 100%;
     display: block;
     content: "";
