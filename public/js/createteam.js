@@ -20,3 +20,11 @@ function choice_diakog_back(){
 /*
 var choice_membar_dialog = new mdc.dialog.MDCDialog(document.querySelector('#choice_membar_dialog'));
 */
+
+function membar_tap(cara_element){
+    //選択したキャラの状態によってメンバーを編成する
+    //console.log(cara_element.id);
+    //
+    //document.getElementById(cara_element.id).style
+    //選択したキャラのdivに番号のdivを重ねる形でいいと思う
+}
