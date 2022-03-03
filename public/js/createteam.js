@@ -22,9 +22,25 @@ var choice_membar_dialog = new mdc.dialog.MDCDialog(document.querySelector('#cho
 */
 
 function membar_tap(cara_element){
-    //選択したキャラの状態によってメンバーを編成する
-    //console.log(cara_element.id);
-    //
-    //document.getElementById(cara_element.id).style
     //選択したキャラのdivに番号のdivを重ねる形でいいと思う
+    // 要素の位置座標を取得
+    var clientRect = cara_element.getBoundingClientRect() ;
+    // 画面の左端から、要素の左端までの距離
+    var x = clientRect.left ;
+    // 画面の上端から、要素の上端までの距離
+    var y = clientRect.top ;
+    //paddingの分
+    var result_y = y - 48;
+    var client_w = cara_element.clientWidth;
+    var client_h = cara_element.clientHeight;
+    //「300px 250px」とコンソールに表示されます
+    console.log(client_w + 'px ' + client_h + 'px');
+    console.log(x,y);
+    //oneを取得
+    var one = document.getElementById("choise_one");
+    one.style.left = x+"px";
+    one.style.top = result_y+"px";
+    one.style.width = client_w+"px";
+    one.style.height = client_h+"px";
+    one.style.display = "block";
 }

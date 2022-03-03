@@ -196,6 +196,7 @@ html{
     display: flex;
     flex-wrap: wrap;
     */
+    position: relative;
     height: calc(100vh - 96px);
     overflow-y: scroll;
     padding: 0px;

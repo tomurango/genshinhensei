@@ -119,3 +119,20 @@
     background-image: url(../images/membar_icons/hotaru.jpg);
 }
 
+/*nunbar*/
+.a_nun_image{
+    position: absolute;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center 25%;
+    background-size: cover;
+    z-index: 1;
+}#choise_one{
+    background-image: url(../images/numbar/test.PNG);
+}#choise_two{
+    background-image: url(../images/numbar/choise_two.PNG);
+}#choise_three{
+    background-image: url(../images/numbar/choise_three.PNG);
+}#choise_four{
+    background-image: url(../images/numbar/choise_four.PNG);
+}
