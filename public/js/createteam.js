@@ -44,3 +44,12 @@ function membar_tap(cara_element){
     one.style.height = client_h+"px";
     one.style.display = "block";
 }
+
+function membar_tap_back(){
+    console.log()
+    //oneを取得
+    document.getElementById("choise_one").style.display = "none";
+}
+
+//oneの位置調整を確実にできるようにする
+//裏のinput若しくはリストを用いてキャラの番号の着脱管理を行う
