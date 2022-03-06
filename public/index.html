@@ -171,69 +171,72 @@
       <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" style="position: absolute; top: 0px;left: 0px" onclick="choice_diakog_back()">clear</button>
       <p class="dialog_title">キャラクター選択</p>
       <div id="cara_dia_wrapper">
-        <!--choised nunbar-->
-        <div id="choise_one" class="a_nun_image" style="display: none;" onclick="membar_tap_back(this)"></div>
-        <div id="choise_two" class="a_nun_image" style="display: none;"></div>
-        <div id="choise_three" class="a_nun_image" style="display: none;"></div>
-        <div id="choise_four" class="a_nun_image" style="display: none;"></div>
-        <!--fire-->
-        <div id="choise_ambar" class="a_mem_image" onclick="membar_tap(this)"></div>
-        <div id="choise_sinen" class="a_mem_image"></div>
-        <div id="choise_enhi" class="a_mem_image"></div>
-        <div id="choise_shanrin" class="a_mem_image"></div>
-        <div id="choise_toma" class="a_mem_image"></div>
-        <div id="choise_yoimiya" class="a_mem_image"></div>
-        <div id="choise_danna" class="a_mem_image"></div>
-        <div id="choise_klee" class="a_mem_image"></div>
-        <div id="choise_hutao" class="a_mem_image"></div>
-        <!--water-->
-        <div id="choise_yukuaki" class="a_mem_image"></div>
-        <div id="choise_babara" class="a_mem_image"></div>
-        <div id="choise_tarutariya" class="a_mem_image"></div>
-        <div id="choise_mona" class="a_mem_image"></div>
-        <div id="choise_kokomi" class="a_mem_image"></div>
-        <div id="choise_ayato" class="a_mem_image"></div>
-        <!--wind-->
-        <div id="choise_sayu" class="a_mem_image"></div>
-        <div id="choise_sukurosu" class="a_mem_image"></div>
-        <div id="choise_jean" class="a_mem_image"></div>
-        <div id="choise_kazuha" class="a_mem_image"></div>
-        <div id="choise_wenti" class="a_mem_image"></div>
-        <div id="choise_sho" class="a_mem_image"></div>
-        <!--thunder-->
-        <div id="choise_fish" class="a_mem_image"></div>
-        <div id="choise_sara" class="a_mem_image"></div>
-        <div id="choise_reza" class="a_mem_image"></div>
-        <div id="choise_hokuto" class="a_mem_image"></div>
-        <div id="choise_risa" class="a_mem_image"></div>
-        <div id="choise_kokuse" class="a_mem_image"></div>
-        <div id="choise_ei" class="a_mem_image"></div>
-        <div id="choise_yae" class="a_mem_image"></div>
-        <!--leef-->
-        <!--ice-->
-        <div id="choise_gaia" class="a_mem_image"></div>
-        <div id="choise_dyona" class="a_mem_image"></div>
-        <div id="choise_tyouun" class="a_mem_image"></div>
-        <div id="choise_rosaria" class="a_mem_image"></div>
-        <div id="choise_nana" class="a_mem_image"></div>
-        <div id="choise_ayaka" class="a_mem_image"></div>
-        <div id="choise_aroi" class="a_mem_image"></div>
-        <div id="choise_kanu" class="a_mem_image"></div>
-        <div id="choise_eurua" class="a_mem_image"></div>
-        <div id="choise_sinkaku" class="a_mem_image"></div>
-        <!--rock-->
-        <div id="choise_goro" class="a_mem_image"></div>
-        <div id="choise_noel" class="a_mem_image"></div>
-        <div id="choise_gyoko" class="a_mem_image"></div>
-        <div id="choise_unkin" class="a_mem_image"></div>
-        <div id="choise_arubedo" class="a_mem_image"></div>
-        <div id="choise_itto" class="a_mem_image"></div>
-        <div id="choise_shori" class="a_mem_image"></div>
-        <!--trabeler-->
-        <div id="choise_sora" class="a_mem_image"></div>
-        <div id="choise_hotaru" class="a_mem_image"></div>
-        <!--benet-->
-        <div id="choise_bene" class="a_mem_image"></div>
+        <!--numdivの位置調整のためのdiv-->
+        <div id="cara_dia_wrapper_board">
+          <!--choised nunbar-->
+          <div id="choise_one" class="a_nun_image" style="display: none;" onclick="membar_tap_back(0)"></div>
+          <div id="choise_two" class="a_nun_image" style="display: none;" onclick="membar_tap_back(1)"></div>
+          <div id="choise_three" class="a_nun_image" style="display: none;" onclick="membar_tap_back(2)"></div>
+          <div id="choise_four" class="a_nun_image" style="display: none;" onclick="membar_tap_back(3)"></div>
+          <!--fire-->
+          <div id="choise_ambar" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_sinen" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_enhi" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_shanrin" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_toma" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_yoimiya" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_danna" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_klee" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_hutao" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <!--water-->
+          <div id="choise_yukuaki" class="a_mem_image"></div>
+          <div id="choise_babara" class="a_mem_image"></div>
+          <div id="choise_tarutariya" class="a_mem_image"></div>
+          <div id="choise_mona" class="a_mem_image"></div>
+          <div id="choise_kokomi" class="a_mem_image"></div>
+          <div id="choise_ayato" class="a_mem_image"></div>
+          <!--wind-->
+          <div id="choise_sayu" class="a_mem_image"></div>
+          <div id="choise_sukurosu" class="a_mem_image"></div>
+          <div id="choise_jean" class="a_mem_image"></div>
+          <div id="choise_kazuha" class="a_mem_image"></div>
+          <div id="choise_wenti" class="a_mem_image"></div>
+          <div id="choise_sho" class="a_mem_image"></div>
+          <!--thunder-->
+          <div id="choise_fish" class="a_mem_image"></div>
+          <div id="choise_sara" class="a_mem_image"></div>
+          <div id="choise_reza" class="a_mem_image"></div>
+          <div id="choise_hokuto" class="a_mem_image"></div>
+          <div id="choise_risa" class="a_mem_image"></div>
+          <div id="choise_kokuse" class="a_mem_image"></div>
+          <div id="choise_ei" class="a_mem_image"></div>
+          <div id="choise_yae" class="a_mem_image"></div>
+          <!--leef-->
+          <!--ice-->
+          <div id="choise_gaia" class="a_mem_image"></div>
+          <div id="choise_dyona" class="a_mem_image"></div>
+          <div id="choise_tyouun" class="a_mem_image"></div>
+          <div id="choise_rosaria" class="a_mem_image"></div>
+          <div id="choise_nana" class="a_mem_image"></div>
+          <div id="choise_ayaka" class="a_mem_image"></div>
+          <div id="choise_aroi" class="a_mem_image"></div>
+          <div id="choise_kanu" class="a_mem_image"></div>
+          <div id="choise_eurua" class="a_mem_image"></div>
+          <div id="choise_sinkaku" class="a_mem_image"></div>
+          <!--rock-->
+          <div id="choise_goro" class="a_mem_image"></div>
+          <div id="choise_noel" class="a_mem_image"></div>
+          <div id="choise_gyoko" class="a_mem_image"></div>
+          <div id="choise_unkin" class="a_mem_image"></div>
+          <div id="choise_arubedo" class="a_mem_image"></div>
+          <div id="choise_itto" class="a_mem_image"></div>
+          <div id="choise_shori" class="a_mem_image"></div>
+          <!--trabeler-->
+          <div id="choise_sora" class="a_mem_image"></div>
+          <div id="choise_hotaru" class="a_mem_image"></div>
+          <!--benet-->
+          <div id="choise_bene" class="a_mem_image"></div>
+        </div>
       </div>
       <div style="height: 48px; padding: 6px; display: flex; justify-content: flex-end; box-sizing: border-box;">
         <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">

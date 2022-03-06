@@ -22,42 +22,78 @@ var choice_membar_dialog = new mdc.dialog.MDCDialog(document.querySelector('#cho
 */
 var choice_membar_list = [];
 function membar_tap(cara_element){
-    //選択したキャラのdivに番号のdivを重ねる形でいいと思う
-    // 要素の位置座標を取得
+    //4キャラ選ばれてたらreturn
+    if(choice_membar_list.length == 4){
+        return 
+    }
+    //リストにキャラを追加
+    choice_membar_list.push(cara_element.id);
+    //console.log(choice_membar_list);
+    var num = choice_membar_list.length - 1;
+    num_box_dis(cara_element.id, num);
+}
+
+function membar_tap_back(del_num){
+    choice_membar_list.splice(del_num, 1);
+    //console.log(choice_membar_list);
+    //除外したものを削除する
+    if(del_num == 0){
+        //oneを削除
+        document.getElementById("choise_one").style.display = "none";
+        document.getElementById("choise_two").style.display = "none";
+        document.getElementById("choise_three").style.display = "none";
+        document.getElementById("choise_four").style.display = "none";
+    }else if(del_num == 1){
+        //twoを削除
+        document.getElementById("choise_two").style.display = "none";
+        document.getElementById("choise_three").style.display = "none";
+        document.getElementById("choise_four").style.display = "none";
+    }else if(del_num == 2){
+        //threeを削除
+        document.getElementById("choise_three").style.display = "none";
+        document.getElementById("choise_four").style.display = "none";
+    }else{
+        //fourを削除
+        document.getElementById("choise_four").style.display = "none";
+    }
+    //numboxの再配置を行う
+    var repeat = choice_membar_list.length
+    for (let i = 0; i < repeat; i++) {
+        num_box_dis(choice_membar_list[i], i);
+    }
+}
+
+//指定したキャラのidと番号でboxの配置を行う
+function num_box_dis(mem_id, num){
+    //console.log("num_box_dis", mem_id, num)
+    var cara_element =document.getElementById(mem_id);
+    var query_id = "#" + mem_id;
+    var $e = $(query_id);
     var clientRect = cara_element.getBoundingClientRect() ;
     // ページの左端から、要素の左端までの距離
     var x = window.pageXOffset + clientRect.left ;
-    // ページの上端から、要素の上端までの距離
-    var y = window.pageYOffset;
-    //var y = window.pageYOffset + clientRect.top ;
-    //console.log(window.pageYOffset, clientRect.top)
-    /*
-    // 画面の左端から、要素の左端までの距離
-    var x = clientRect.left ;
-    // 画面の上端から、要素の上端までの距離
-    var y = clientRect.top ;
-    */
-    //paddingの分
-    //var result_y = y - 48;
+    // 親要素の左上を (0,0) とした相対座標
+    var y = $e.position().top//padding 分の引き算
+    // 幅と高さ
     var client_w = cara_element.clientWidth;
     var client_h = cara_element.clientHeight;
-    //「300px 250px」とコンソールに表示されます
-    console.log(client_w + 'px ' + client_h + 'px');
-    console.log(x,y);
-    //oneを取得
-    var one = document.getElementById("choise_one");
-    one.style.left = x+"px";
-    one.style.top = y+"px";
-    one.style.width = client_w+"px";
-    one.style.height = client_h+"px";
-    one.style.display = "block";
+    //numboxを指定する
+    if(num == 0){
+        //oneを取得
+        var num_box = document.getElementById("choise_one");
+    }else if(num == 1){
+        //twoを取得
+        var num_box = document.getElementById("choise_two");
+    }else if(num == 2){
+        //threeを取得
+        var num_box = document.getElementById("choise_three");
+    }else{
+        //fourを取得
+        var num_box = document.getElementById("choise_four");
+    }
+    num_box.style.left = x+"px";
+    num_box.style.top = y+"px";
+    num_box.style.width = client_w+"px";
+    num_box.style.height = client_h+"px";
+    num_box.style.display = "block";
 }
-
-function membar_tap_back(){
-    console.log()
-    //oneを取得
-    document.getElementById("choise_one").style.display = "none";
-}
-
-//oneの位置調整を確実にできるようにする
-//裏のinput若しくはリストを用いてキャラの番号の着脱管理を行う
