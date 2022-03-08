@@ -15,6 +15,7 @@ function choice_diakog_back(){
     //console.log("choice_membar_dialog");
     //choice_membar_dialog.open();
     document.getElementById("choice_membar_dialog").style.display = "none";
+    //キャラの配列を基にキャラクタを配置
 }
 
 /*

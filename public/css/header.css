@@ -191,7 +191,7 @@ html{
     overflow-x: hidden;
     overflow-y: scroll;
 }#cara_dia_wrapper{
-    height: calc(100vh - 96px);
+    height: calc(100vh - 48px);
     overflow-y: scroll;
 }#cara_dia_wrapper_board{
     position: relative;
