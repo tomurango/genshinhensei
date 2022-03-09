@@ -16,6 +16,7 @@ function choice_diakog_back(){
     //choice_membar_dialog.open();
     document.getElementById("choice_membar_dialog").style.display = "none";
     //キャラの配列を基にキャラクタを配置
+    array_cara(choice_membar_list);
 }
 
 /*
@@ -97,4 +98,36 @@ function num_box_dis(mem_id, num){
     num_box.style.width = client_w+"px";
     num_box.style.height = client_h+"px";
     num_box.style.display = "block";
+}
+
+function array_cara(the_membar_list){
+    var repeat = the_membar_list.length
+    var result_images = '';
+    for (let i = 0; i < repeat; i++) {
+        var cara_id = the_membar_list[i];
+        if(i < 3){
+            var sign = ", ";
+        }else{
+            var sign = ";";
+        }
+        var para = document.getElementById(cara_id);
+        var compStyles = window.getComputedStyle(para, false).getPropertyValue('background-image');
+        result_images += compStyles + sign;
+    }
+    var empty_repeat = 4 - repeat;
+    for (let i = 0; i < empty_repeat; i++) {
+        var last_count = empty_repeat - i; 
+        if(1 < last_count){
+            var sign = ", ";
+        }else{
+            var sign = ";";
+        }
+        result_images += 'url(../images/empty_cal.jpg)' + sign;
+    }
+    console.log(result_images);
+    //背景に挿入
+    $("#choiced_wrapper").css("backgroundImage", result_images);
+    //document.body.style.backgroundImage = result_images;
+    document.getElementById("choiced_wrapper").style.backgroundImage = result_images;
+    document.getElementById("sample_membars_media").style.backgroundImage = result_images;
 }
