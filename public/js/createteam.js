@@ -108,7 +108,7 @@ function array_cara(the_membar_list){
         if(i < 3){
             var sign = ", ";
         }else{
-            var sign = ";";
+            var sign = "";
         }
         var para = document.getElementById(cara_id);
         var compStyles = window.getComputedStyle(para, false).getPropertyValue('background-image');
@@ -120,14 +120,13 @@ function array_cara(the_membar_list){
         if(1 < last_count){
             var sign = ", ";
         }else{
-            var sign = ";";
+            var sign = "";
         }
         result_images += 'url(../images/empty_cal.jpg)' + sign;
     }
     console.log(result_images);
     //背景に挿入
-    $("#choiced_wrapper").css("backgroundImage", result_images);
-    //document.body.style.backgroundImage = result_images;
-    document.getElementById("choiced_wrapper").style.backgroundImage = result_images;
-    document.getElementById("sample_membars_media").style.backgroundImage = result_images;
+    var images_area = document.querySelector('#choiced_wrapper');
+    images_area.style.backgroundImage = result_images;
+    document.querySelector('#choiced_wrapper').style.backgroundImage = result_images;   
 }
