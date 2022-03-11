@@ -128,5 +128,14 @@ function array_cara(the_membar_list){
     //背景に挿入
     var images_area = document.querySelector('#choiced_wrapper');
     images_area.style.backgroundImage = result_images;
-    document.querySelector('#choiced_wrapper').style.backgroundImage = result_images;   
+    //document.querySelector('#choiced_wrapper').style.backgroundImage = result_images;   
+}
+
+//teamの送信条件を検索してtrueかfalseを返す関数
+function team_can_submit(){
+    //中身に1キャラは要る
+    choice_membar_list
+    //titleに入力あり
+    //説明に入力あり
+    return true
 }
