@@ -134,8 +134,22 @@ function array_cara(the_membar_list){
 //teamの送信条件を検索してtrueかfalseを返す関数
 function team_can_submit(){
     //中身に1キャラは要る
-    choice_membar_list
-    //titleに入力あり
-    //説明に入力あり
-    return true
+    if(choice_membar_list.length > 0){
+        //titleに入力あり
+        console.log("membar ok");
+        if(document.getElementById("team_name_input").value != ""){
+            //説明に入力あり
+            console.log("title ok");
+            if(document.getElementById("team_exp_input").value != ""){
+                console.log("setumei ok");
+                return true    
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
 }
