@@ -99,7 +99,7 @@
       
       <div>
         <!--yarukeeperのadv_crea_button参考-->
-        <button class="mdc-button mdc-button--outlined" style="margin: 30px 0px 0px 0px" disabled onclick="">
+        <button id="throw_team_button" class="mdc-button mdc-button--outlined" style="margin: 30px 0px 0px 0px" disabled onclick="send_alert_dialog.open()">
           <div class="mdc-button__ripple"></div>
           <span class="mdc-button__label">投稿</span>
         </button>
@@ -237,6 +237,22 @@
           <!--benet-->
           <div id="choise_bene" class="a_mem_image" onclick="membar_tap(this)"></div>
         </div>
+      </div>
+    </div>
+
+    <div id="send_alert_dialog" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+      <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+          <section class="mdc-dialog__content">
+            チーム情報を送信します。<br>よろしいですか？
+          </section>
+          <footer class="mdc-dialog__actions">
+            <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="close" style="--mdc-ripple-fg-size:45px; --mdc-ripple-fg-scale:2.10168; --mdc-ripple-fg-translate-start:-2.32294px, 8px; --mdc-ripple-fg-translate-end:15.7656px, -4.5px;">キャンセル</button>
+            <button id="change_user_name_send_button" type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="accept" onclick="send_team()" style="--mdc-ripple-fg-size:49px; --mdc-ripple-fg-scale:2.0438; --mdc-ripple-fg-translate-start:6.47913px, 6px; --mdc-ripple-fg-translate-end:16.8229px, -6.5px;">送信</button>
+          </footer>
+        </div>
+      </div>
+      <div class="mdc-dialog__scrim">
       </div>
     </div>
 

@@ -1,22 +1,52 @@
 function open_dialog_fab(){
     document.getElementById("create_team_div").style.display = "flex";
+    //このイベント投稿欄を閉じたときに停止させる
+    var $team_title_input = $('#team_name_input');
+    var $team_exp_input = $('#team_exp_input');
+    $team_title_input.on('input', function(event) {
+        //console.log($team_title_input.val());
+        if(team_can_submit()){
+            document.getElementById("throw_team_button").disabled = false;
+        }else{
+            document.getElementById("throw_team_button").disabled = true;
+        }
+    });
+    $team_exp_input.on('input', function(event) {
+        //console.log($team_exp_input.val());
+        if(team_can_submit()){
+            document.getElementById("throw_team_button").disabled = false;
+        }else{
+            document.getElementById("throw_team_button").disabled = true;
+        }
+    });
 }
-
 function open_dialog_fab_back(){
     document.getElementById("create_team_div").style.display = "none";
+    //ボタンイベントを解除
+    var $team_title_input = $('#team_name_input');
+    var $team_exp_input = $('#team_exp_input');
+    $team_title_input.off('input');
+    $team_exp_input.off('input');
+    //入力を初期値に戻す
 }
 
 function choice_diakog(){
-    //console.log("choice_membar_dialog");
     //choice_membar_dialog.open();
     document.getElementById("choice_membar_dialog").style.display = "block";
 }
 function choice_diakog_back(){
-    //console.log("choice_membar_dialog");
+    //ボタンをdisabledに戻す
+    document.getElementById("throw_team_button").disabled = true;
     //choice_membar_dialog.open();
     document.getElementById("choice_membar_dialog").style.display = "none";
     //キャラの配列を基にキャラクタを配置
     array_cara(choice_membar_list);
+    //投稿可能かどうかでボタンのon off
+    if(team_can_submit()){
+        document.getElementById("throw_team_button").disabled = false;
+    }else{
+        document.getElementById("throw_team_button").disabled = true;
+    }
 }
 
 /*
@@ -153,3 +183,12 @@ function team_can_submit(){
         return false;
     }
 }
+
+var send_alert_dialog = new mdc.dialog.MDCDialog(document.querySelector('#send_alert_dialog'));
+
+//firestoreに送信する関数
+function send_team(){
+    console.log("送信だよ♡");
+}
+
+//ボタンはdisabledの変化じゃなくて別ボタンにしてdialogで何かしらの入力が必要であることを明記する
