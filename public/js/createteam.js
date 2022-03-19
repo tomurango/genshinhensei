@@ -188,7 +188,28 @@ var send_alert_dialog = new mdc.dialog.MDCDialog(document.querySelector('#send_a
 
 //firestoreに送信する関数
 function send_team(){
-    console.log("送信だよ♡");
+    //投稿可能かどうかで処理の分岐
+    if(team_can_submit()){
+        var team_list = choice_membar_list;
+        var team_name = document.getElementById("team_name_input").value;
+        var team_exp = document.getElementById("team_exp_input").value;
+        var new_team = {
+            list: team_list,
+            name: team_name,
+            text: team_exp
+        }
+        //ここfirestore
+        firebase.firestore().collection("teams").add(new_team).then(function(){
+            console.log("作成完了", new_team);
+            //global_user_database = regist_doc;
+        }).catch(function(error){
+            console.log("error", error);
+        });
+    }else{
+        //damedane
+        console.log("送信条件を満たしてないです");
+    }
 }
 
 //ボタンはdisabledの変化じゃなくて別ボタンにしてdialogで何かしらの入力が必要であることを明記する
+
