@@ -20,6 +20,23 @@ function open_dialog_fab(){
         }
     });
 }
+/* 入力した内容は取り消されるdialogを出す */
+var delete_alert_dialog = new mdc.dialog.MDCDialog(document.querySelector('#delete_alert_dialog'));
+/* 入力内容が有るかないかで処理を分岐させる */
+function check_input_ornot(){
+    if(choice_membar_list.length > 0){
+        return delete_alert_dialog.open();
+    }else{
+        if(document.getElementById("team_name_input").value){        
+            return delete_alert_dialog.open();
+        }else if(document.getElementById("team_exp_input").value){
+            return delete_alert_dialog.open();
+        }else{
+            return open_dialog_fab_back();
+        }
+    }
+}
+
 function open_dialog_fab_back(){
     document.getElementById("create_team_div").style.display = "none";
     //ボタンイベントを解除
@@ -28,6 +45,12 @@ function open_dialog_fab_back(){
     $team_title_input.off('input');
     $team_exp_input.off('input');
     //入力を初期値に戻す
+    choice_membar_list = [];
+    //キャラの配列を基にキャラクタを配置
+    array_cara(choice_membar_list);
+    //チーム名及び説明初期化
+    document.getElementById("team_name_input").value = "";
+    document.getElementById("team_exp_input").value = "";
 }
 
 function choice_diakog(){
@@ -154,7 +177,7 @@ function array_cara(the_membar_list){
         }
         result_images += 'url(../images/empty_cal.jpg)' + sign;
     }
-    console.log(result_images);
+    //console.log(result_images);
     //背景に挿入
     var images_area = document.querySelector('#choiced_wrapper');
     images_area.style.backgroundImage = result_images;
@@ -166,12 +189,12 @@ function team_can_submit(){
     //中身に1キャラは要る
     if(choice_membar_list.length > 0){
         //titleに入力あり
-        console.log("membar ok");
+        //console.log("membar ok");
         if(document.getElementById("team_name_input").value != ""){
             //説明に入力あり
-            console.log("title ok");
+            //console.log("title ok");
             if(document.getElementById("team_exp_input").value != ""){
-                console.log("setumei ok");
+                //console.log("setumei ok");
                 return true    
             }else{
                 return false;
@@ -188,6 +211,8 @@ var send_alert_dialog = new mdc.dialog.MDCDialog(document.querySelector('#send_a
 
 //firestoreに送信する関数
 function send_team(){
+    //連投を防ぐためにボタンを押せなくする
+    document.getElementById("throw_team_button").disabled = true;
     //投稿可能かどうかで処理の分岐
     if(team_can_submit()){
         var team_list = choice_membar_list;
@@ -201,15 +226,20 @@ function send_team(){
         //ここfirestore
         firebase.firestore().collection("teams").add(new_team).then(function(){
             console.log("作成完了", new_team);
+            //作成のdivを非表示にする
+            open_dialog_fab_back();
             //global_user_database = regist_doc;
         }).catch(function(error){
             console.log("error", error);
         });
     }else{
         //damedane
+        alert("送信条件を満たしていません");
         console.log("送信条件を満たしてないです");
     }
 }
 
 //ボタンはdisabledの変化じゃなくて別ボタンにしてdialogで何かしらの入力が必要であることを明記する
 
+//入力した内容は削除されますというdialogを表示する流れの作成
+//投稿で来たらsnack barを表示する
