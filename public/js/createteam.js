@@ -228,7 +228,8 @@ function send_team(){
             console.log("作成完了", new_team);
             //作成のdivを非表示にする
             open_dialog_fab_back();
-            //global_user_database = regist_doc;
+            //global_user_database;
+            snackbar.open();
         }).catch(function(error){
             console.log("error", error);
         });
@@ -239,7 +240,9 @@ function send_team(){
     }
 }
 
+//チームの投稿ができたら表示する
+const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
+
 //ボタンはdisabledの変化じゃなくて別ボタンにしてdialogで何かしらの入力が必要であることを明記する
 
-//入力した内容は削除されますというdialogを表示する流れの作成
 //投稿で来たらsnack barを表示する

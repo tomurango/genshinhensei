@@ -138,19 +138,20 @@
       <div id="card_container">
 
         <div class="mdc-card team_card" onclick="detail_team()">
-          <div id="sample_membars_media" class="mdc-card__media mdc-card__media--16-9 team_image">
-            <!--
-            <img class="member_image" src="images/membar_icons/amber.jpg">
-            <img class="member_image" src="images/membar_icons/amber.jpg">
-            <img class="member_image" src="images/membar_icons/amber.jpg">
-            <img class="member_image" src="images/membar_icons/amber.jpg">
-          -->
-          </div>
+          <div id="" class="mdc-card__media mdc-card__media--16-9 team_image"></div>
           <div class="mdc-card__content team_info_container">
-            <p class="team_name">チーム名</p>
+            <p class="team_name_oncard">頭脳感電</p>
+            <p class="team_exp_oncard">原神を十分に楽しみまくるための編成</p>
           </div>
-          
         </div>
+        <div class="mdc-card team_card" onclick="detail_team()">
+          <div id="" class="mdc-card__media mdc-card__media--16-9 team_image"></div>
+          <div class="mdc-card__content team_info_container">
+            <p class="team_name_oncard">頭脳感電</p>
+            <p class="team_exp_oncard">原神を十分に楽しみまくるための編成</p>
+          </div>
+        </div>
+        
 
       </div>
 
@@ -269,6 +270,21 @@
         </div>
       </div>
       <div class="mdc-dialog__scrim">
+      </div>
+    </div>
+
+    <!-- 広告を申請した時の途中処理にて表示 -->
+    <div id="sinsei_ok" class="mdc-snackbar">
+      <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+        <div class="mdc-snackbar__label" aria-atomic="false">
+          申請を受け付けました
+        </div>
+        <!--div class="mdc-snackbar__actions" aria-atomic="true">
+            <button type="button" class="mdc-button mdc-snackbar__action">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Retry</span>
+            </button>
+        </div-->
       </div>
     </div>
 

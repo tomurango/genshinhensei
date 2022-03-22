@@ -56,11 +56,16 @@ html{
         position: relative;
         left: 120px;
     }.team_info_container{
-        padding: 4px;
+        padding: 8px;
+        position: relative;
+        overflow: hidden;
     }#card_container{
-        justify-content: center;
+        /*justify-content: center;*/
+        display: flex;
+        flex-wrap: wrap;
     }.team_card{
-        min-width: 200px;
+        /*min-width: 200px;*/
+        width: calc(50% - 4px);
     }#craete_area_wrapper{
         display: flex;
         flex-direction: row;
@@ -82,6 +87,8 @@ html{
         justify-content: center;
     }.team_info_container{
         padding: 16px;
+        position: relative;
+        overflow: hidden;
     }#craete_area_wrapper{
         display: flex;
         flex-direction: column;
@@ -109,8 +116,12 @@ html{
     display: flex;
     gap: 8px;
     padding: 8px;
-}.team_name{
+}.team_name_oncard{
     margin: 0px;
+}.team_exp_oncard{
+    margin: 0px;
+    font-size: 0.8em;
+    color: #757575;
 }
 
 .team_image{
@@ -215,7 +226,9 @@ html{
     /*box-sizing: content-box;
     background-color: #000032;
     margin: 1px;
+    */
 }
+/*これコメントアウトされてたけど動いてた謎*/
 .a_mem_image::before {
     margin-top: 100%;
     display: block;
