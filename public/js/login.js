@@ -53,6 +53,8 @@ function log_out(){
 $(document).ready(function(){
     //chart js のグラフが表示されない問題の解決のための検証
     firebase.auth().getRedirectResult().then(function(result) {
+        //ログインの有無にかかわらずチームは取ってきて挿入するイメージ（後に分岐の可能性はある）
+        get_teams();
         //console.log(result);
         if (result.credential) {
         // This gives you a Google Access Token. You can use it to access the Google API.
