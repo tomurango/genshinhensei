@@ -47,7 +47,9 @@ function open_dialog_fab_back(){
     //入力を初期値に戻す
     choice_membar_list = [];
     //キャラの配列を基にキャラクタを配置
-    array_cara(choice_membar_list);
+    var insert_images = array_cara(choice_membar_list);
+    var images_area = document.querySelector('#choiced_wrapper');
+    images_area.style.backgroundImage = insert_images;
     //チーム名及び説明初期化
     document.getElementById("team_name_input").value = "";
     document.getElementById("team_exp_input").value = "";
@@ -63,7 +65,9 @@ function choice_diakog_back(){
     //choice_membar_dialog.open();
     document.getElementById("choice_membar_dialog").style.display = "none";
     //キャラの配列を基にキャラクタを配置
-    array_cara(choice_membar_list);
+    var insert_images = array_cara(choice_membar_list);
+    var images_area = document.querySelector('#choiced_wrapper');
+    images_area.style.backgroundImage = insert_images;
     //投稿可能かどうかでボタンのon off
     if(team_can_submit()){
         document.getElementById("throw_team_button").disabled = false;
@@ -178,9 +182,12 @@ function array_cara(the_membar_list){
         result_images += 'url(../images/empty_cal.jpg)' + sign;
     }
     //console.log(result_images);
+    return result_images
     //背景に挿入
+    /*
     var images_area = document.querySelector('#choiced_wrapper');
     images_area.style.backgroundImage = result_images;
+    */
     //document.querySelector('#choiced_wrapper').style.backgroundImage = result_images;   
 }
 
