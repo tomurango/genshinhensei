@@ -1,0 +1,19 @@
+#detail_team_main{
+    top: 48px;
+    height: calc(100vh - 48px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    text-align: left;
+}
+#detail_team_imgcont{
+    position: relative;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: 0 50%, 33.3% 50%, 66.7% 50%, 100% 50%;
+    background-size: 25% auto, 25% auto, 25% auto, 25% auto;
+}#detail_team_imgcont::before {
+    padding-top: 56.25%;
+    display: block;
+    content: "";
+}

@@ -57,6 +57,7 @@
 
     
     <link href="css/header.css" rel="stylesheet">
+    <link href="css/detail_team.css" rel="stylesheet">
     <link href="css/membar.css" rel="stylesheet">
 
   </head>
@@ -110,8 +111,15 @@
       <!--戻るボタン-->
       <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" style="position: absolute; top: 0px;left: 0px" onclick="detail_team_back()">clear</button>
       <p class="dialog_title">チーム情報一覧</p>
-      <div id="detail_team_imgcont"></div>
-      <div id="detail_team_txtcont"></div>
+      <div id="detail_team_main">
+        <div id="detail_team_imgcont"></div>
+        <div id="detail_team_txtcont">
+          <p id="detail_team_name"></p>
+          <p id="detail_team_exp"></p>
+        </div>
+      </div>
+      <div id="detail_team_comment"></div>
+      <div id="detail_team_others"></div>
     </div>
 
     <header id="top_header" class="mdc-top-app-bar">
@@ -140,15 +148,15 @@
       <div id="card_container">
 
         <!--
-        <div class="mdc-card team_card" onclick="detail_team()">
-          <div id="" class="mdc-card__media mdc-card__media--16-9 team_image"></div>
+        <div id="" class="mdc-card team_card" onclick="detail_team()">
+          <div class="mdc-card__media mdc-card__media--16-9 team_image"></div>
           <div class="mdc-card__content team_info_container">
             <p class="team_name_oncard">頭脳感電</p>
             <p class="team_exp_oncard">原神を十分に楽しみまくるための編成</p>
           </div>
         </div>
         <div class="mdc-card team_card" onclick="detail_team()">
-          <div id="" class="mdc-card__media mdc-card__media--16-9 team_image"></div>
+          <div class="mdc-card__media mdc-card__media--16-9 team_image"></div>
           <div class="mdc-card__content team_info_container">
             <p class="team_name_oncard">頭脳感電</p>
             <p class="team_exp_oncard">原神を十分に楽しみまくるための編成</p>

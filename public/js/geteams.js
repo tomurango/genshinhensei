@@ -30,7 +30,7 @@ function insert_ateam(team_data, team_id){
     var card_container = document.getElementById("card_container");
 
     //var task_div ='<div id="' + task_id + '" style="width: 100%; display: flex" onclick="task_onclick(this)"><div style="padding: 8px; width: 64px; box-sizing: border-box;"><button class="mdc-icon-button material-icons" onclick="window.event.cancelBubble = true;task_check_back(this)">check</button></div><div style="width: calc(100% - 54px)"><p class="todo_first" style="margin:18px 10% 0px 0px"></p><p class="todo_second" style="margin:0px 10% 0px 0px; font-size:0.8em; color:#666666"></p>'+ third_div +'</div></div>';
-    var team_div = '<div id="' + team_id + '" class="mdc-card team_card" onclick="detail_team()"><div class="mdc-card__media mdc-card__media--16-9 team_image"></div><div class="mdc-card__content team_info_container"><p class="team_name_oncard"></p><p class="team_exp_oncard"></p></div></div>';
+    var team_div = '<div id="' + team_id + '" class="mdc-card team_card" onclick="detail_team(this)"><div class="mdc-card__media mdc-card__media--16-9 team_image"></div><div class="mdc-card__content team_info_container"><p class="team_name_oncard"></p><p class="team_exp_oncard"></p></div></div>';
 
     //var tasks_container = document.getElementById("to_do_items_finished");
     var team_promise = new Promise(function(resolve, reject){
