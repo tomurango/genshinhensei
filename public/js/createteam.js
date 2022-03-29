@@ -53,6 +53,11 @@ function open_dialog_fab_back(){
     //チーム名及び説明初期化
     document.getElementById("team_name_input").value = "";
     document.getElementById("team_exp_input").value = "";
+    //キャラ選択画面のUIを初期の形にする（非表示）
+    document.getElementById("choise_one").style.display = "none";
+    document.getElementById("choise_two").style.display = "none";
+    document.getElementById("choise_three").style.display = "none";
+    document.getElementById("choise_four").style.display = "none";
 }
 
 function choice_diakog(){
@@ -253,4 +258,4 @@ const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snack
 //ボタンはdisabledの変化じゃなくて別ボタンにしてdialogで何かしらの入力が必要であることを明記する
 //team cardのplaceholder
 //team detail の content
-//cara選択の表示が元dialog閉じても残ってる関連のバグ
+//pc版のteam detailの表示配置（主に画像エリア）

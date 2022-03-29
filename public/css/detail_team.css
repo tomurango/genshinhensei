@@ -17,3 +17,13 @@
     display: block;
     content: "";
 }
+#detail_team_txtcont{
+    padding: 16px;
+}#detail_team_name{
+    margin: 0px;
+    font-weight: bold;
+    font-size: 1.2em;
+}#detail_team_exp{
+    margin: 0px;
+    font-size: 0.8em;
+}
