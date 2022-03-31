@@ -258,4 +258,4 @@ const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snack
 //ボタンはdisabledの変化じゃなくて別ボタンにしてdialogで何かしらの入力が必要であることを明記する
 //team cardのplaceholder
 //team detail の content
-//pc版のteam detailの表示配置（主に画像エリア）
+//tag 機能かコメント機能か

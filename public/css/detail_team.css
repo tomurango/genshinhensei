@@ -27,3 +27,17 @@
     margin: 0px;
     font-size: 0.8em;
 }
+
+/*pc etc*/
+@media screen and (min-width:600px){
+    #detail_team_imgcont{
+        width: 60%;
+        margin: 16px;
+    }
+}
+/*smart phone etc*/
+@media screen and (max-width:599px){
+    #detail_team_imgcont{
+        width: 100%;
+    }
+}
