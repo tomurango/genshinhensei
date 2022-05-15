@@ -5,6 +5,7 @@
     overflow-x: hidden;
     position: relative;
     text-align: left;
+    display: flex;
 }
 #detail_team_imgcont{
     position: relative;
@@ -27,17 +28,35 @@
     margin: 0px;
     font-size: 0.8em;
 }
+#detail_team_comment{
+    padding: 16px;
+}
+#detail_team_others{
+    padding: 16px;
+}
 
 /*pc etc*/
 @media screen and (min-width:600px){
+    #detail_team_main{
+        flex-direction: row;
+    }
     #detail_team_imgcont{
-        width: 60%;
+        /*width: 60%;*/
         margin: 16px;
+    }#detail_team_txtcont{
+        /*width: 60%;*/
+    }#detail_team_others{
+        float: right;
     }
 }
 /*smart phone etc*/
 @media screen and (max-width:599px){
+    #detail_team_main{
+        flex-direction: column;
+    }
     #detail_team_imgcont{
+        width: 100%;
+    }#detail_team_txtcont{
         width: 100%;
     }
 }
