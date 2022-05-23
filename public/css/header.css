@@ -43,16 +43,19 @@ html{
     }#main_area{
         left: 120px;
         position: relative;
-        width: 500px;
+        min-width: 500px;
+        width: 60%;
     }#top_header{
-        width: 500px;
+        width: 60%;
+        min-width: 500px;
         position: relative;
         left: 120px;
         box-shadow: none;
     }#open_dialog_fab{
         left: 480px;
     }main{
-        width: 500px;
+        width: 60%;
+        min-width: 500px;
         position: relative;
         left: 120px;
     }.team_info_container{
