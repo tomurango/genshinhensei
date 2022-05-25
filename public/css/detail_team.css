@@ -64,3 +64,13 @@
 #detail_one{
     width: 60%;
 }
+
+#team_comment_sub{
+    display: inline-block;
+}
+#team_comment_inp{
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #eeeeee;
+}
