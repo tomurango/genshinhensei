@@ -47,6 +47,8 @@
         /*width: 60%;*/
     }#detail_team_others{
         float: right;
+    }#detail_one{
+        width: 60%;
     }
 }
 /*smart phone etc*/
@@ -58,12 +60,11 @@
         width: 100%;
     }#detail_team_txtcont{
         width: 100%;
+    }#detail_one{
+        width: 100%;
     }
 }
 
-#detail_one{
-    width: 60%;
-}
 
 #team_comment_sub{
     display: inline-block;
@@ -74,3 +75,4 @@
     border-radius: 5px;
     background-color: #eeeeee;
 }
+
