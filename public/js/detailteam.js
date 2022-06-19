@@ -20,11 +20,14 @@ function detail_team(thecard_ele){
     //入力でactivateする感じに変更する
     var $team_comment_inp = $('#team_comment_inp');
     $team_comment_inp.focus(function() {
-        //console.log('focus');
-        //入力があったらボタン表示なしなら非表示
-        //ボタン表示
-        document.getElementById("team_comment_btn").style.display = 'inline-block';
-        //console.log("ボタン召喚");
+        //ログインしてなかったらログイン誘導する
+        if(firebase.auth().currentUser){
+            //ログインしてるのでボタンを表示
+            document.getElementById("team_comment_btn").style.display = 'inline-block';
+        }else{
+            //ログインしてないのでログインのダイアログを表示する
+            login_card_display();
+        }
     });
     //focus切れて、ボタンがないなら非表示にする
     $team_comment_inp.blur(function() {
@@ -90,4 +93,11 @@ function detail_team_back_withcom(){
     document.getElementById("team_comment_btn").disabled = true;
     //入力値を空欄にする
     document.getElementById('team_comment_inp').value = '';
+}
+
+function comment_to_team(){
+    console.log('コメント送信');
+    //特にダイアログ等は不要でオケ感じ
+    //チーム一つに対してidごとに一つのコメントのみみたいな形で試すと思う
+    //db送信、取得、反映、セキュリティを実装したら完成だと思う
 }

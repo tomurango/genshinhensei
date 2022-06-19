@@ -70,6 +70,8 @@
     display: inline-block;
 }
 #team_comment_inp{
+    box-sizing: border-box;
+    height: 36px;
     border: none;
     padding: 8px;
     border-radius: 5px;
