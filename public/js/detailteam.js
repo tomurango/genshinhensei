@@ -1,4 +1,10 @@
+//チームにコメントするためのglobal変数
+var global_team_active;
+
+//detailを開くための関数
 function detail_team(thecard_ele){
+    //activeteamの定義
+    global_team_active=thecard_ele.id;
     //dialog表示
     document.getElementById("detail_team_div").style.display = "block";
     //console.log(thecard_ele.id, global_team[thecard_ele.id]);
@@ -15,6 +21,8 @@ function detail_team(thecard_ele){
     //ここでtextContentいれる
     $("#detail_team_div").find("#detail_team_name").text(choise_name);
     $("#detail_team_div").find("#detail_team_exp").text(choise_exp);
+
+
     //inputタグのイベント設定
     //フォーカスで表示
     //入力でactivateする感じに変更する
@@ -52,6 +60,15 @@ function detail_team(thecard_ele){
             //console.log("ボタン無効化");
         }
     });
+
+
+    //コメントの取得と挿入を行う非同期関数かな？
+    
+
+
+    //関連チームの取得と挿入を行う
+
+
 }
 
 /* 入力した内容は取り消されるdialogを出す */
@@ -75,6 +92,8 @@ function detail_team_back(){
         document.getElementById("team_comment_btn").style.display = 'none';
         //ボタン無効化
         document.getElementById("team_comment_btn").disabled = true;
+        //global_team_activeの無効化
+        global_team_active='';
     }
 }
 
@@ -93,6 +112,10 @@ function detail_team_back_withcom(){
     document.getElementById("team_comment_btn").disabled = true;
     //入力値を空欄にする
     document.getElementById('team_comment_inp').value = '';
+    //global_team_activeの無効化
+    global_team_active='';
+    //画像とかのチーム情報もリセットする
+
 }
 
 function comment_to_team(){
@@ -100,4 +123,28 @@ function comment_to_team(){
     //特にダイアログ等は不要でオケ感じ
     //チーム一つに対してidごとに一つのコメントのみみたいな形で試すと思う
     //db送信、取得、反映、セキュリティを実装したら完成だと思う
+    firebase.firestore().collection('teams').doc(global_team_active).collection('comments').set(firebase.auth().currentUser.uid)({
+        name: 'a',
+        time: 'a',
+        uid: '',
+        icon: '',
+        comment: ''
+    }).then(function(){
+        //inputの中身を消す
+        //見かけを反映する
+        //globalの中身を更新する
+        //
+    }).catch(function(error){
+        console.log('error',error);
+    });
 }
+
+
+//残ってるやることリスト
+/*
+firestore のセキュリティルール
+コメント送信情報の実装
+コメント読み込み挿入処理の実装
+関連（おすすめ、新規）チーム情報の取得と実装
+家らん茎しのぶ歯科のいんの実装選択可にする
+*/
