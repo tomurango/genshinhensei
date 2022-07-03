@@ -27,7 +27,7 @@
     <!-- スマホ用アイコン -->
     <!--<link rel="apple-touch-icon" sizes="180x180" href="images/shuucan.jpg">-->
     <!-- ファビコン -->
-    <!--<link rel="icon" href="images/favicon.ico">-->
+    <link rel="icon" href="images/favicon.ico">
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/9.6.0/firebase-app-compat.js"></script>
@@ -100,7 +100,7 @@
       
       <div>
         <!--yarukeeperのadv_crea_button参考-->
-        <button id="throw_team_button" class="mdc-button mdc-button--outlined" style="margin: 30px 0px 0px 0px" disabled onclick="send_alert_dialog.open()">
+        <button id="throw_team_button" class="mdc-button mdc-button--raised" style="margin: 30px 0px 0px 0px" disabled onclick="send_alert_dialog.open()">
           <div class="mdc-button__ripple"></div>
           <span class="mdc-button__label">投稿</span>
         </button>
@@ -121,16 +121,30 @@
           <div id="detail_team_comment">
             <p id="team_comment_sub">コメント</p>
             <br>
-            <!--flexのdiv作ろう-->
             <input id="team_comment_inp" placeholder="コメントを作成">
             <button id="team_comment_btn" disabled class="mdc-button mdc-button--raised" onclick="comment_to_team();" style="display: none;">
               <span class="mdc-button__label">コメント</span>
             </button>
+            <!--ここにコメントが挿入されていく-->
+            <div id="team_comment_inner">
+              <div class="team_comment_div">
+                <div class="team_comment_top">
+                  <img class="team_comment_icon" src="images/nanikaerror.jpg">
+                  <p class="team_comment_name">とむら</p>
+                  <p class="team_comment_time">2時間前</p>
+                </div>
+                <div class="team_comment_main">
+                  <p class="team_comment_text">コメント内容</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div id="detail_two">
           <div id="detail_team_others">
-            ここにほかちーむのじょうほうを挿入
+            <p id="team_others_sub">他のチーム</p>
+            <!--ここにチームが挿入されていく-->
+            <div id="team_others_inner"></div>
           </div>
         </div>
       </div>
@@ -218,10 +232,11 @@
           <!--water-->
           <div id="choise_yukuaki" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_babara" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_ayato" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_tarutariya" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_ieran" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_mona" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_kokomi" class="a_mem_image" onclick="membar_tap(this)"></div>
-          <div id="choise_ayato" class="a_mem_image" onclick="membar_tap(this)"></div>
           <!--wind-->
           <div id="choise_sayu" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_sukurosu" class="a_mem_image" onclick="membar_tap(this)"></div>
@@ -230,6 +245,7 @@
           <div id="choise_wenti" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_sho" class="a_mem_image" onclick="membar_tap(this)"></div>
           <!--thunder-->
+          <div id="choise_sinobu" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_fish" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_sara" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_reza" class="a_mem_image" onclick="membar_tap(this)"></div>
@@ -337,5 +353,5 @@
   <script src="js/createteam.js"></script>
   <script src="js/detailteam.js"></script>
   <script src="js/geteams.js"></script>
-  
+  <script src="js/createcoment.js"></script>
 </html>

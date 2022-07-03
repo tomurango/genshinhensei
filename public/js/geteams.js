@@ -49,3 +49,25 @@ function insert_ateam(team_data, team_id){
     });
     return team_promise;
 }
+
+//新着投稿チーム
+//メンバーひとり以上含む新着、random2つ
+//合計４つに対応するような関数。数や取得概要を変数に指定することで処理分岐するようにして良いと思われる
+
+function get_other_teams(){
+    // console.log('関連チームを取ってくる　後に表示する');
+    var have_global = getTeamIDsfromGlobal();
+    firebase.firestore().collection("teams").where('doc_id', 'not-in', documentIds).limit(1).get().then(function(teams){
+        console.log(teams);
+    });
+}
+
+function getTeamIDsfromGlobal(){
+    result = [];
+    // global_team
+    for (let key in global_team) {
+        // alert('key:' + key + ' value:' + global_team[key]);
+        result.push(key);
+    }
+    return result;
+}

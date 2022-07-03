@@ -26,14 +26,16 @@
     background-image: url(../images/membar_icons/yukua.jpg);
 }#choise_babara{
     background-image: url(../images/membar_icons/babara.jpg);
+}#choise_ayato{
+    background-image: url(../images/membar_icons/ayato.jpg);
 }#choise_tarutariya{
     background-image: url(../images/membar_icons/tarutaru.jpg);
+}#choise_ieran{
+    background-image: url(../images/membar_icons/ieran.jpg);
 }#choise_mona{
     background-image: url(../images/membar_icons/mna.jpg);
 }#choise_kokomi{
     background-image: url(../images/membar_icons/kokomi.jpg);
-}#choise_ayato{
-    background-image: url(../images/membar_icons/ayato.jpg);
 }
 
 /*wind*/
@@ -52,7 +54,9 @@
 }
 
 /*thunder*/
-#choise_fish{
+#choise_sinobu{
+    background-image: url(../images/membar_icons/kukisinobu.jpg);
+}#choise_fish{
     background-image: url(../images/membar_icons/fish.jpg);
 }#choise_sara{
     background-image: url(../images/membar_icons/kujo.jpg);

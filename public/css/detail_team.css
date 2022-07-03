@@ -67,9 +67,11 @@
 
 
 #team_comment_sub{
+    margin: 4px 0px;
     display: inline-block;
 }
 #team_comment_inp{
+    width: calc(100% - 100px);
     box-sizing: border-box;
     height: 36px;
     border: none;
@@ -78,3 +80,43 @@
     background-color: #eeeeee;
 }
 
+.team_comment_div{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 4px 0px;
+}
+.team_comment_top{
+    width: 100%;
+    position: relative;
+    height: 48px;
+}.team_comment_main{
+    width: 100%;
+    position: relative;
+    text-align: left;
+}
+.team_comment_icon{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}.team_comment_name{
+    margin: 0px;
+    position: absolute;
+    top: 8px;
+    left: 48px;
+    font-size: 16px;
+    font-weight: 600;
+}.team_comment_time{
+    margin: 0px;
+    position: absolute;
+    top: 28px;
+    left: 48px;
+    font-size: 10px;
+    color: #777777;
+}.team_comment_text{
+    font-size: 16px;
+    margin: 0px 8px 8px 48px;
+}
