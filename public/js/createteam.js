@@ -233,7 +233,8 @@ function send_team(){
         var new_team = {
             list: team_list,
             name: team_name,
-            text: team_exp
+            text: team_exp,
+            time: firebase.firestore.Timestamp.now()
         }
         //ここfirestore
         firebase.firestore().collection("teams").add(new_team).then(function(){

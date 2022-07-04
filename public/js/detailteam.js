@@ -117,3 +117,8 @@ function detail_team_back_withcom(){
     //画像とかのチーム情報もリセットする
 
 }
+
+function displayOtherTeams(already_get){
+    console.log(already_get);
+    
+}

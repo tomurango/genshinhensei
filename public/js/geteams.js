@@ -7,8 +7,8 @@ function get_teams(){
         firebase.firestore().collection("teams").limit(10).get().then(function(teams){
             get_flag = false;
             //loop
-            global_team = teams;
-            console.log("team 数", teams.size);
+            //global_team = teams;
+            //console.log("team 数", teams.size);
             teams.forEach(function(team){
                 //teamごとに挿入していく処理
                 console.log(team.data(), team.id);
@@ -54,15 +54,36 @@ function insert_ateam(team_data, team_id){
 //メンバーひとり以上含む新着、random2つ
 //合計４つに対応するような関数。数や取得概要を変数に指定することで処理分岐するようにして良いと思われる
 
-function get_other_teams(){
+//取ってきたチームのIDを取得する実装にして、取って来なかったら空の列を返すようにする
+function getOtherTeams(currentTeamId){
     // console.log('関連チームを取ってくる　後に表示する');
-    var have_global = getTeamIDsfromGlobal();
-    firebase.firestore().collection("teams").where('doc_id', 'not-in', documentIds).limit(1).get().then(function(teams){
-        console.log(teams);
+    var have_global = getTeamIdsfromGlobal();
+    var result = [];
+    //最新を2件取ってくる
+    firebase.firestore().collection("teams").where('doc_id', 'not-in', have_global).orderBy("time", "desc").limit(2).get().then(function(teams){
+        //teamごとに挿入していく処理
+        teams.forEach(function(team){
+            //global変数に代入
+            global_team[team.id] = team.data();
+            //result配列に入れる
+            result.push(team.id);
+        });
+        //メンバーをひとり以上含む最新2件を取ってくる
+        firebase.firestore().collection("teams").where('doc_id', 'not-in', have_global).where('list', 'in', global_team[currentTeamId]).orderBy("time", "desc").limit(2).get().then(function(teams){
+            //teamごとに挿入していく処理
+            teams.forEach(function(team){
+                //global変数に代入
+                global_team[team.id] = team.data();
+                //result配列に入れる
+                result.push(team.id);
+            });
+            //取得した結果をもとにその他チーム情報を表示する
+            displayOtherTeams(result);
+        });
     });
 }
 
-function getTeamIDsfromGlobal(){
+function getTeamIdsfromGlobal(){
     result = [];
     // global_team
     for (let key in global_team) {

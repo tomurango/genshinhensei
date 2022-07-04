@@ -1,0 +1,26 @@
+#detail_two{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+#team_others_sub{
+    display: inline-block;
+}
+#team_others_inner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.other_info{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}.other_thumbnail{
+    background-color: blueviolet;
+    width: 40%;
+    position: relative;
+}.other_thumbnail::before {
+    padding-top: 56.25%;
+    display: block;
+    content: "";
+}

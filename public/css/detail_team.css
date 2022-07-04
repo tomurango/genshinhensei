@@ -35,6 +35,7 @@
     padding: 16px;
 }
 
+
 /*pc etc*/
 @media screen and (min-width:600px){
     #detail_team_main{
@@ -49,6 +50,8 @@
         float: right;
     }#detail_one{
         width: 60%;
+    }#detail_two{
+        width: 40%;
     }
 }
 /*smart phone etc*/
@@ -61,6 +64,8 @@
     }#detail_team_txtcont{
         width: 100%;
     }#detail_one{
+        width: 100%;
+    }#detail_two{
         width: 100%;
     }
 }
