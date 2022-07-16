@@ -5,11 +5,26 @@ var global_team_active;
 function detail_team(thecard_ele){
     //IDに関してotherから来た時にも対応する
     // 自動生成のdocIdは英数字だって https://t28.dev/auto-id-of-cloud-firestore/
-    // '_'が含まれるかどうか確認。
+    // otherから来てるのかhomeから来てるのかでIDとその後の処理が異なるので '_'が含まれるかどうか確認。
     if (thecard_ele.id.indexOf('_') !== -1) {
         // alert('含まれています。');
         //activeteamの定義
         global_team_active = thecard_ele.id.split('_')[0];
+        //inputタグの取得
+        var $team_comment_inp = $('#team_comment_inp');
+        //focus blur on イベントの削除（重複を避けるため）
+        $team_comment_inp.off('focus');
+        $team_comment_inp.off('blur');
+        $team_comment_inp.off('input');
+        //ボタン削除
+        document.getElementById("team_comment_btn").style.display = 'none';
+        //ボタン無効化
+        document.getElementById("team_comment_btn").disabled = true;
+        // comment containerをからにする
+        document.getElementById('team_comment_container').innerHTML ='';
+        // placeholderを消してcomment_containerを表示する
+        document.getElementById('team_comment_placeholder').style.display = 'block';
+        document.getElementById('team_comment_container').style.display = 'none';
     }else{
         //activeteamの定義
         global_team_active = thecard_ele.id;
@@ -119,7 +134,11 @@ function detail_team(thecard_ele){
         if (!arr) return [];
     
         var keys = [];
-        for (var key in arr) keys.push(key);
+        for (var key in arr) {
+            keys.push(key);
+            //console.log('コメントあり', key, keys);
+            insert_comment(global_team_active, key);
+        };
     
         return keys;
     };
@@ -130,6 +149,7 @@ function detail_team(thecard_ele){
             //commentごとに挿入していく処理
             comments.forEach(function(comment){
                 //commentを挿入していく
+                //console.log(comment);
                 global_team[global_team_active]['commentList'][comment.id] = comment.data();
                 insert_comment(team_id, comment_id);
             });
@@ -139,12 +159,13 @@ function detail_team(thecard_ele){
     }catch(error){
         // 1回目はnon empty arrayのエラーになるので
         firebase.firestore().collection("teams").doc(global_team_active).collection('comments').limit(5).get().then(function(comments){
-            console.log(comments);
+            //console.log(comments);
             //commentごとに挿入していく処理
             comments.forEach(function(comment){
                 //commentを挿入していく
+                //console.log(comment);
                 global_team[global_team_active]['commentList'][comment.id] = comment.data();
-                insert_comment(team_id, comment_id);
+                insert_comment(global_team_active, comment.id);
             });
         }).catch(function(error){
             console.log(error, 'error');
@@ -187,6 +208,11 @@ function detail_team_back(){
         document.getElementById("team_comment_btn").disabled = true;
         //global_team_activeの無効化
         global_team_active='';
+        // comment containerをからにする
+        document.getElementById('team_comment_container').innerHTML ='';
+        // placeholderを消してcomment_containerを表示する
+        document.getElementById('team_comment_placeholder').style.display = 'block';
+        document.getElementById('team_comment_container').style.display = 'none';
     }
 }
 
@@ -207,6 +233,11 @@ function detail_team_back_withcom(){
     document.getElementById('team_comment_inp').value = '';
     //global_team_activeの無効化
     global_team_active='';
+    // comment containerをからにする
+    document.getElementById('team_comment_container').innerHTML ='';
+    // placeholderを消してcomment_containerを表示する
+    document.getElementById('team_comment_placeholder').style.display = 'block';
+    document.getElementById('team_comment_container').style.display = 'none';
     //画像とかのチーム情報もリセットする
 
 }
