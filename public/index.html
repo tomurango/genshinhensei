@@ -127,7 +127,7 @@
               <span class="mdc-button__label">コメント</span>
             </button>
             <!--ここにコメントが挿入されていく-->
-            <div id="team_comment_inner">
+            <div id="team_comment_container">
               <div class="team_comment_div">
                 <div class="team_comment_top">
                   <img class="team_comment_icon" src="images/nanikaerror.jpg">
@@ -144,11 +144,16 @@
         <div id="detail_two">
           <p id="team_others_sub">他のチーム</p>
           <!--ここにチームが挿入されていく-->
-          <div id="team_others_inner">
-            <div class="other_info">
-              <div class="other_thumbnail"></div>
-              <div class="other_explain"></div>
-            </div>
+          <div id="team_others_container">
+            <!--
+              <div class="other_info">
+                <div class="other_thumbnail"></div>
+                <div class="other_explain">
+                  <p class="other_name">ここにチーム名が入りまーす！</p>
+                  <p class="other_time">７時間前</p>
+                </div>
+              </div>
+            -->
           </div>
         </div>
       </div>
@@ -243,6 +248,7 @@
           <div id="choise_kokomi" class="a_mem_image" onclick="membar_tap(this)"></div>
           <!--wind-->
           <div id="choise_sayu" class="a_mem_image" onclick="membar_tap(this)"></div>
+          <div id="choise_shikanoin" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_sukurosu" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_jean" class="a_mem_image" onclick="membar_tap(this)"></div>
           <div id="choise_kazuha" class="a_mem_image" onclick="membar_tap(this)"></div>

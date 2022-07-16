@@ -6,21 +6,52 @@
 #team_others_sub{
     display: inline-block;
 }
-#team_others_inner{
+#team_others_container{
     display: flex;
     flex-direction: column;
     width: 100%;
+    row-gap: 16px;
 }
 .other_info{
     display: flex;
     width: 100%;
     flex-direction: row;
 }.other_thumbnail{
+    /*
     background-color: blueviolet;
-    width: 40%;
     position: relative;
+    */
+    width: 40%;
+
+    position: relative;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: 0 50%, 33.3% 50%, 66.7% 50%, 100% 50%;
+    background-size: 25% auto, 25% auto, 25% auto, 25% auto;
 }.other_thumbnail::before {
     padding-top: 56.25%;
     display: block;
     content: "";
+}
+.other_explain{
+    width: 60%;
+    padding: 0px 16px 0px 8px;
+}.other_name{
+    margin: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}/*.other_username{
+    margin: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666666;
+}*/.other_time{
+    margin: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666666;
 }
