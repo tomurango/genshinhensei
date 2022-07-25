@@ -285,7 +285,7 @@ function insertOtherTeam(team_id){
   </div>';
     */
     var other_id = team_id + "_otherteam"; 
-    var other_team_div = '<div id="' + other_id + '" class="other_info" onclick="detail_team(this)"><div class="other_thumbnail"></div><div class="other_explain"><p class="other_name"></p><p class="other_time"></p></div></div>';
+    var other_team_div = '<div id="' + other_id + '" class="other_info" onclick="detail_team(this)"><div class="other_thumbnail lazyload"></div><div class="other_explain"><p class="other_name"></p><p class="other_time"></p></div></div>';
     var other_team_container = document.getElementById("team_others_container");
     var other_team_promise = new Promise(function(resolve, reject){
         other_team_container.insertAdjacentHTML("afterbegin", other_team_div);
