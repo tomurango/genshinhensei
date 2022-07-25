@@ -44,6 +44,8 @@ function open_dialog_fab_back(){
     var $team_exp_input = $('#team_exp_input');
     $team_title_input.off('input');
     $team_exp_input.off('input');
+    //投稿ボタンのdisactive
+    document.getElementById('throw_team_button').disabled = true;
     //入力を初期値に戻す
     choice_membar_list = [];
     //キャラの配列を基にキャラクタを配置

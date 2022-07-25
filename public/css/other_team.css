@@ -2,6 +2,7 @@
     display: flex;
     position: relative;
     flex-direction: column;
+    box-sizing: border-box;
 }
 #team_others_sub{
     display: inline-block;
