@@ -72,8 +72,17 @@ html{
     }#craete_area_wrapper{
         display: flex;
         flex-direction: row;
+        align-items: stretch;
+        column-gap: 16px;
+        flex-wrap: wrap;
     }#create_area_one{
-        width: 300px;
+        width: 49%;
+    }#create_area_two{
+        width: 49%;
+    }#create_area_three{
+        width: 49%;
+    }#create_area_four{
+        width: 49%;
     }
 }@media screen and (max-width:599px){
     .top_level_page{
@@ -163,14 +172,24 @@ html{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin-right: 16px;
 }#create_area_two{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}#create_area_three{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}#create_area_four{
     position: relative;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }#choiced_wrapper{
     position: relative;
+    border: 8px solid #eeeeee;
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-image: url(../images/empty_cal.jpg), url(../images/empty_cal.jpg), url(../images/empty_cal.jpg), url(../images/empty_cal.jpg);
@@ -185,10 +204,15 @@ html{
 #team_name_input{
     border: none;
     font-size: 18px;
-    margin-bottom: 50px;
+    margin-bottom: 16px;
+    background-color: #eeeeee;
+    padding: 8px;
 }#team_exp_input{
     border: none;
+    padding: 8px;
     font-size: 18px;
+    height: -webkit-fill-available;
+    background-color: #eeeeee;
 }
 
 #choice_membar_dialog{

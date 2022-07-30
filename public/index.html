@@ -95,17 +95,21 @@
           <p class="subtext">チーム名</p>
           <input id="team_name_input" placeholder="チーム名を入力">
           <p class="subtext">説明</p>
-          <textarea id="team_exp_input" placeholder="説明を入力" name="" cols="30" rows="10"></textarea>
+          <textarea id="team_exp_input" placeholder="説明を入力"></textarea>
+        </div>
+        <div id="create_area_three">
+          <p class="subtext">クリップ</p>
+          <div>ここにクリップのプレイスホルダーと入力後のgifが入る</div>
+        </div>
+        <div id="create_area_three">
+          <!--yarukeeperのadv_crea_button参考-->
+          <button id="throw_team_button" class="mdc-button mdc-button--raised" style="margin: 30px 0px 0px 0px" disabled onclick="send_alert_dialog.open()">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">投稿</span>
+          </button>
         </div>
       </div>
       
-      <div>
-        <!--yarukeeperのadv_crea_button参考-->
-        <button id="throw_team_button" class="mdc-button mdc-button--raised" style="margin: 30px 0px 0px 0px" disabled onclick="send_alert_dialog.open()">
-          <div class="mdc-button__ripple"></div>
-          <span class="mdc-button__label">投稿</span>
-        </button>
-      </div>
     </div>
     
     <div id="detail_team_div" style="display: none; position: fixed; height: 100%; width: 100%; left: 0px; text-align: center;z-index: 5;top: 0px;background-color: #ffffff;">
