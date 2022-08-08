@@ -76,14 +76,17 @@ html{
         column-gap: 16px;
         flex-wrap: wrap;
     }#create_area_one{
-        width: 49%;
+        width: 70%;
     }#create_area_two{
-        width: 49%;
-    }#create_area_three{
+        width: calc(30% - 32px);
+    }
+    /*
+    #create_area_three{
         width: 49%;
     }#create_area_four{
         width: 49%;
     }
+    */
 }@media screen and (max-width:599px){
     .top_level_page{
         height: calc(100vh - 106px);
@@ -213,6 +216,18 @@ html{
     font-size: 18px;
     height: -webkit-fill-available;
     background-color: #eeeeee;
+}#team_gif_pre{
+    background-image: url(../images/empty_cal.jpg);
+    position: relative;
+    border: 8px solid #eeeeee;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}#team_gif_pre::before {
+    margin-top: 56.25%;
+    display: block;
+    content: "";
 }
 
 #choice_membar_dialog{

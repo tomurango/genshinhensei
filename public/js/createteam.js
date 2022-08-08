@@ -3,6 +3,7 @@ function open_dialog_fab(){
     //このイベント投稿欄を閉じたときに停止させる
     var $team_title_input = $('#team_name_input');
     var $team_exp_input = $('#team_exp_input');
+    var $team_gif_input = $('#team_gif_inp');
     $team_title_input.on('input', function(event) {
         //console.log($team_title_input.val());
         if(team_can_submit()){
@@ -19,7 +20,28 @@ function open_dialog_fab(){
             document.getElementById("throw_team_button").disabled = true;
         }
     });
+    //GIF入力のイベントの受付
+    $team_gif_input.on('change', function (e) {
+        var team_gif_inp = document.getElementById("team_gif_inp").value.split('.');
+        // gifが正しく入力されているか
+        if(team_gif_inp[team_gif_inp.length - 1].toLowerCase()=='gif'){
+            //入力されている処理
+            //document.getElementById("adv_img_pre").innerHTML = '<img id="preview">';
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#team_gif_pre').css({
+                    backgroundImage: 'url("'+ e.target.result +'")' // "" で括っていないとIEでは表示されない
+                });
+            }
+            reader.readAsDataURL(e.target.files[0]);
+        }else{
+            //入力されていない処理
+            document.getElementById("team_gif_pre").style.backgroundImage = "url(images/empty_cal.jpg)";
+            alert("gifファイルのみアップロードできます");
+        }
+    });
 }
+
 /* 入力した内容は取り消されるdialogを出す */
 var delete_alert_dialog = new mdc.dialog.MDCDialog(document.querySelector('#delete_alert_dialog'));
 /* 入力内容が有るかないかで処理を分岐させる */
@@ -42,8 +64,10 @@ function open_dialog_fab_back(){
     //ボタンイベントを解除
     var $team_title_input = $('#team_name_input');
     var $team_exp_input = $('#team_exp_input');
+    var $team_gif_input = $('#team_gif_inp');
     $team_title_input.off('input');
     $team_exp_input.off('input');
+    $team_gif_input.off('input');
     //投稿ボタンのdisactive
     document.getElementById('throw_team_button').disabled = true;
     //入力を初期値に戻す
@@ -60,6 +84,10 @@ function open_dialog_fab_back(){
     document.getElementById("choise_two").style.display = "none";
     document.getElementById("choise_three").style.display = "none";
     document.getElementById("choise_four").style.display = "none";
+    //gifファイルを初期化
+    document.getElementById("team_gif_inp").value='';
+    //gifプレビューの初期化
+    document.getElementById("team_gif_pre").style.backgroundImage = "url(images/empty_cal.jpg)";
 }
 
 function choice_diakog(){
@@ -223,10 +251,21 @@ function team_can_submit(){
 
 var send_alert_dialog = new mdc.dialog.MDCDialog(document.querySelector('#send_alert_dialog'));
 
+
+
+// この関数に画像を含める形を実装していく
 //firestoreに送信する関数
 function send_team(){
-    //連投を防ぐためにボタンを押せなくする
+    // 連投を防ぐためにボタンを押せなくする
     document.getElementById("throw_team_button").disabled = true;
+    // IDを事前に作成
+    var documentId =  firebase.firestore().collection('teams').doc().id;
+    // gifが入力されているかどうか
+    var file = document.getElementById('team_gif_inp').files[0];
+    // 並列処理でfirestoreにURLは特に保存しない処理で画像（gif）は逐一取得する実装にしますわシンプルだし下記参考
+    // https://qiita.com/norami_dream/items/0edfca15c15199921a73
+    // URLを格納する処理ではないので下記は参考箇所に注意する
+    // https://qiita.com/musatarosu/items/2a0f3915afbd9e717cff
     //投稿可能かどうかで処理の分岐
     if(team_can_submit()){
         var team_list = choice_membar_list;
@@ -238,21 +277,39 @@ function send_team(){
             text: team_exp,
             time: firebase.firestore.Timestamp.now()
         }
-        //ここfirestore
-        firebase.firestore().collection("teams").add(new_team).then(function(){
-            console.log("作成完了", new_team);
-            //作成のdivを非表示にする
-            open_dialog_fab_back();
-            //global_user_database;
-            snackbar.open();
-        }).catch(function(error){
-            console.log("error", error);
-        });
+        // gifの入力がある場合cloudstorageにアップロード
+        if(file){
+            var filePath = 'teamGifs/' + documentId;
+            var promise1 = firebase.storage().ref(filePath).put(file);
+            var promise2 = firebase.firestore().collection("teams").doc(documentId).set(new_team).then(function(){
+                console.log("作成完了", new_team);
+            }).catch(function(error){
+                console.log("error", error);
+            });
+            var promises = [promise1, promise2];
+        }else{
+            //ここfirestore
+            var promise2 = firebase.firestore().collection("teams").doc(documentId).set(new_team).then(function(){
+                console.log("作成完了", new_team);
+            }).catch(function(error){
+                console.log("error", error);
+            });
+            var promises = [promise2];
+        }
     }else{
         //damedane
         alert("送信条件を満たしていません");
         console.log("送信条件を満たしてないです");
+        return 
     }
+    var result = Promise.all(promises).then((values) => {
+        console.log(values);
+        //作成のdivを非表示にする
+        open_dialog_fab_back();
+        //global_user_database;
+        snackbar.open();
+    });
+    return result;
 }
 
 //チームの投稿ができたら表示する

@@ -35,8 +35,8 @@
     <script defer src="/__/firebase/9.6.0/firebase-auth-compat.js"></script>
     <script defer src="/__/firebase/9.6.0/firebase-firestore-compat.js"></script>
     <script defer src="/__/firebase/9.6.0/firebase-performance-compat.js"></script>
+    <script defer src="/__/firebase/9.6.0/firebase-storage-compat.js"></script>
     <!-- 
-      <script defer src="/__/firebase/9.6.0/firebase-storage-compat.js"></script>
       <script defer src="/__/firebase/9.6.0/firebase-analytics-compat.js"></script>
       <script defer src="/__/firebase/9.6.0/firebase-remote-config-compat.js"></script>
       <script defer src="/__/firebase/9.6.0/firebase-database-compat.js"></script>
@@ -86,28 +86,33 @@
 
       <div id="craete_area_wrapper">
         <div id="create_area_one">
-          <p class="subtext">キャラ選択</p>
+          <p class="subtext">キャラ選択（必須）</p>
           <div id="choiced_wrapper" onclick="choice_diakog()">
             <!--ここに画像が入る-->
           </div>
         </div>
         <div id="create_area_two">
-          <p class="subtext">チーム名</p>
+          <p class="subtext">チーム名（必須）</p>
           <input id="team_name_input" placeholder="チーム名を入力">
-          <p class="subtext">説明</p>
+          <p class="subtext">説明（必須）</p>
           <textarea id="team_exp_input" placeholder="説明を入力"></textarea>
+          <p class="subtext">GIFクリップ</p>
+          <!--画像入力及び、プレビューエリア-->
+            <label id="team_gif_label" for="team_gif_inp">
+              <div id="team_gif_pre"></div>
+            </label>
+          <input id="team_gif_inp" type="file" accept="image/gif" style="display: none;">
         </div>
-        <div id="create_area_three">
-          <p class="subtext">クリップ</p>
-          <div>ここにクリップのプレイスホルダーと入力後のgifが入る</div>
-        </div>
-        <div id="create_area_three">
-          <!--yarukeeperのadv_crea_button参考-->
-          <button id="throw_team_button" class="mdc-button mdc-button--raised" style="margin: 30px 0px 0px 0px" disabled onclick="send_alert_dialog.open()">
-            <div class="mdc-button__ripple"></div>
-            <span class="mdc-button__label">投稿</span>
-          </button>
-        </div>
+        <button id="throw_team_button" class="mdc-button mdc-button--raised" style="margin: 30px 0px 0px 0px" disabled onclick="send_alert_dialog.open()">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">投稿</span>
+        </button>
+        <!--
+          <div id="create_area_three">
+          </div>
+          <div id="create_area_three">
+          </div>
+        -->
       </div>
       
     </div>
