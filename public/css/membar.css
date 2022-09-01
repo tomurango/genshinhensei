@@ -66,6 +66,8 @@
     background-image: url(../images/membar_icons/reza.jpg);
 }#choise_hokuto{
     background-image: url(../images/membar_icons/hokuto.jpg);
+}#choise_dori{
+    background-image: url(../images/membar_icons/dori.jpg);
 }#choise_risa{
     background-image: url(../images/membar_icons/risa.jpg);
 }#choise_kokuse{
@@ -77,6 +79,11 @@
 }
 
 /*reef*/
+#choise_korei{
+    background-image: url(../images/membar_icons/korei.jpg);
+}#choise_texinari{
+    background-image: url(../images/membar_icons/texinari.jpg);
+}
 
 /*ice*/
 #choise_gaia{

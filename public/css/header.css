@@ -20,6 +20,12 @@ html{
 #top_header{
     position: relative;
     box-shadow: 0 2px 5px rgba(0,33,66);
+    height: 96px;
+}
+.header_text{
+    position: absolute;
+    font-size: 0.1em;
+    margin-right: 10px;
 }
 
 
@@ -79,6 +85,9 @@ html{
         width: 70%;
     }#create_area_two{
         width: calc(30% - 32px);
+    }.header_text{
+        top: 56px;
+        left: 16px;
     }
     /*
     #create_area_three{
@@ -107,6 +116,9 @@ html{
     }#craete_area_wrapper{
         display: flex;
         flex-direction: column;
+    }.header_text{
+        top: 48px;
+        left: 8px;
     }
 }.top_level_page{
     width: 100%;

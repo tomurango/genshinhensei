@@ -1,5 +1,7 @@
 //チームにコメントするためのglobal変数
 var global_team_active;
+//一度取得したリンクを保持しておくためのglobal変数
+var global_team_gif = {};
 
 //detailを開くための関数
 function detail_team(thecard_ele){
@@ -128,7 +130,7 @@ function detail_team(thecard_ele){
         console.log('error', error);
     });
 
-    // すでに持ってるコメントの確認
+    // すでに持ってるコメントの確認→20220830使われてなかったから急遽取り入れたので動きの影響があれば優先的に考える必要がありそう
     var arr = global_team[global_team_active]['commetList'];
     var alredy_comment_list = function(arr) {
         if (!arr) return [];
@@ -144,12 +146,12 @@ function detail_team(thecard_ele){
     };
     //コメントの取得と挿入を行う非同期関数 最新から5件 まだ取得してないコメント限定
     try{
-        firebase.firestore().collection("teams").doc(global_team_active).collection('comments').where(firebase.firestore.FieldPath.documentId(), 'not-in', []).limit(5).get().then(function(comments){
+        firebase.firestore().collection("teams").doc(global_team_active).collection('comments').where(firebase.firestore.FieldPath.documentId(), 'not-in', alredy_comment_list(arr)).limit(5).get().then(function(comments){
             console.log(comments);
             //commentごとに挿入していく処理
             comments.forEach(function(comment){
                 //commentを挿入していく
-                //console.log(comment);
+                console.log(comment);
                 global_team[global_team_active]['commentList'][comment.id] = comment.data();
                 insert_comment(team_id, comment_id);
             });
@@ -169,6 +171,42 @@ function detail_team(thecard_ele){
             });
         }).catch(function(error){
             console.log(error, 'error');
+        });
+    }
+    
+    // すでに動画を取得してるかの検証をしてから処理を分岐する
+    if(global_team_active in global_team_gif){
+        console.log('cosole gif get');
+        // globalに動画がある時の処理
+        document.getElementById('detail_button_loadgif').style.display = 'none';
+        document.getElementById('detail_button_notgif').style.display = 'none';
+        document.getElementById('detail_button_gif').style.display = 'flex';
+        // 動画をエリアに配置
+        var insert_gif = 'url(' + global_team_gif[global_team_active] + ')';
+        console.log(insert_gif);
+        $("#detail_team_div").find("#detail_team_gifcont").css('background-image', insert_gif);
+    }else{
+        // globalに動画がない時の処理
+        var filePath = 'teamGifs/' + global_team_active;
+        firebase.storage().ref().child(filePath).getDownloadURL().then((url) => {
+            // `url` is the download URL for 'images/stars.jpg'
+            console.log(url);
+            // globalに代入
+            global_team_gif[global_team_active] = url;
+            //　動画がある時の処理
+            document.getElementById('detail_button_loadgif').style.display = 'none';
+            document.getElementById('detail_button_notgif').style.display = 'none';
+            document.getElementById('detail_button_gif').style.display = 'flex';
+            // 動画をエリアに配置
+            var insert_gif = 'url(' + global_team_gif[global_team_active] + ')';
+            $("#detail_team_div").find("#detail_team_gifcont").css('background-image', insert_gif);
+        }).catch((error) => {
+            // Handle any errors
+            console.log('error', error);
+            // ない時の処理
+            document.getElementById('detail_button_loadgif').style.display = 'none';
+            document.getElementById('detail_button_gif').style.display = 'none';
+            document.getElementById('detail_button_notgif').style.display = 'flex';
         });
     }
 }
@@ -213,6 +251,14 @@ function detail_team_back(){
         // placeholderを消してcomment_containerを表示する
         document.getElementById('team_comment_placeholder').style.display = 'block';
         document.getElementById('team_comment_container').style.display = 'none';
+        // 動画用のボタンを初期化する
+        document.getElementById('detail_button_loadgif').style.display = 'flex';
+        document.getElementById('detail_button_notgif').style.display = 'none';
+        document.getElementById('detail_button_gif').style.display = 'none';
+        document.getElementById('detail_button_stopgif').style.display = 'none';
+        // メイン表示管理
+        document.getElementById('detail_team_gifcont').style.display = 'none';
+        document.getElementById('detail_team_imgcont').style.display = 'block';
     }
 }
 
@@ -238,8 +284,16 @@ function detail_team_back_withcom(){
     // placeholderを消してcomment_containerを表示する
     document.getElementById('team_comment_placeholder').style.display = 'block';
     document.getElementById('team_comment_container').style.display = 'none';
-    //画像とかのチーム情報もリセットする
-
+    // 動画用のボタンを初期化する
+    document.getElementById('detail_button_loadgif').style.display = 'flex';
+    document.getElementById('detail_button_notgif').style.display = 'none';
+    document.getElementById('detail_button_gif').style.display = 'none';
+    document.getElementById('detail_button_stopgif').style.display = 'none';
+    // メイン表示管理
+    document.getElementById('detail_team_gifcont').style.display = 'none';
+    document.getElementById('detail_team_imgcont').style.display = 'block';
+    // 動画を非表示にする
+        $("#detail_team_div").find("#detail_team_gifcont").css('background-image', '');
 }
 
 function OtherTeamsRoop(beforeHandTeams){
@@ -322,4 +376,57 @@ function getDate_diary(date) {
     var hour  = date.getHours();
     var minute= date.getMinutes();
     return String(year) + "年" + String(month) + "月" + String(day) + "日" + String(hour) + "時" + String(minute) + "分";
+}
+
+
+// 画像がある場合の差し込み処理を実装する下記参考
+// https://www.web-dev-qa-db-ja.com/ja/javascript/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%8Cfirebase-storage%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/825997514/
+
+
+
+
+// 動画がある時のボタンを押した処理を書いていく
+function display_gif(){
+    console.log('gifを表示する');
+    //ボタン表示を切り替える
+    document.getElementById('detail_button_gif').style.display = 'none';
+    document.getElementById('detail_button_stopgif').style.display = 'flex';
+    // gifのdivのボタンを表示する
+    document.getElementById('detail_button_stopgif').style.display = 'block';
+    // 表示管理
+    document.getElementById('detail_team_imgcont').style.display = 'none';
+    document.getElementById('detail_team_gifcont').style.display = 'block';
+}
+
+function display_gif_stop(){
+    console.log('gifを非表示にする');
+    document.getElementById('detail_button_stopgif').style.display = 'none';
+    document.getElementById('detail_button_gif').style.display = 'flex';
+    // gifのdivのボタンを非表示にする
+    document.getElementById('detail_button_stopgif').style.display = 'none';
+    // 表示管理
+    document.getElementById('detail_team_gifcont').style.display = 'none';
+    document.getElementById('detail_team_imgcont').style.display = 'block';
+}
+
+// 経験値.comから引用したけど使わないと思う
+function appear_card(clicked_element_id, apper_element_id){
+    console.log("appear card");
+    //スクロール停止 なんであるかわからん->画面で表示した要素がずれないようにとかそんな感じだと思う
+    $("body").css('overflow','hidden');
+    //それぞれエレメントを取得
+    var clicked_element = document.getElementById(clicked_element_id);
+    var appear_element = document.getElementById(apper_element_id);
+    //クリックした要素の情報を取得
+    var rect = clicked_element.getBoundingClientRect();
+    var left = rect.left;
+    var top = rect.top;  
+    var width = rect.width;
+    var height = rect.height;
+    //出現させる
+    appear_element.style.top = String(top) + "px";
+    appear_element.style.left = String(left) + "px";
+    appear_element.style.width = String(width) + "px";
+    appear_element.style.height = String(height) + "px";
+    appear_element.style.display = "block";
 }

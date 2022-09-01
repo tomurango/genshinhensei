@@ -124,10 +124,42 @@
       <div id="detail_team_main">
         <div id="detail_one">
           <div id="detail_team_imgcont"></div>
+          <div id="detail_team_gifcont"></div>
           <div id="detail_team_txtcont">
             <p id="detail_team_name"></p>
             <p id="detail_team_exp"></p>
           </div>
+          <div id="detail_action_container">
+            <button id="detail_button_loadgif" class="mdc-button mdc-button--raised mdc-button--leading" style="display: flex;" disabled>
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true"
+                >find_replace</i
+              >
+              <span class="mdc-button__label">GIF検索中</span>
+            </button>
+            <button id="detail_button_gif" class="mdc-button mdc-button--raised mdc-button--leading" style="display: none;" onclick="display_gif()">
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true"
+                >play_arrow</i
+              >
+              <span class="mdc-button__label">GIFを見る</span>
+            </button>
+            <button id="detail_button_notgif" class="mdc-button mdc-button--raised mdc-button--leading"  style="display: none;" disabled>
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true"
+                >tv_off</i
+              >
+              <span class="mdc-button__label">GIFはなし</span>
+            </button>
+            <button id="detail_button_stopgif" class="mdc-button mdc-button--raised mdc-button--leading"  style="display: none; background-color: #663300;" onclick="display_gif_stop()">
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true"
+                >stop</i
+              >
+              <span class="mdc-button__label">GIFを停止</span>
+            </button>
+          </div>
+
           <div id="detail_team_comment">
             <p id="team_comment_sub">コメント</p>
             <br>
@@ -175,7 +207,7 @@
 
     <header id="top_header" class="mdc-top-app-bar">
       <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="position: relative;">
           <button id="login_icon" onclick="login_card_display()" style="display:none; background-color:#ffffff; height:32px; width:32px; padding:0px; overflow: hidden; border:none; border-radius: 50%;left: 6px; position:relative;"><img id="usericon" width="32" height="32" alt="Your Icon" onerror="this.src='/images/nanikaerror.jpg'" ></button>
           <!--
           <button id="login_button" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="login" onclick="login_card_display()">account_circle</button>
@@ -189,9 +221,12 @@
           
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-          <button style="display: block" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
+          <button style="display: none" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
           <button style="display: none" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
         </section>
+        <span class="header_text">
+          本サイトは、原神の二次創作です。二次創作に関するガイドラインにもとづいて制作しています。また、実際の仕様とは異なる場合があります。
+        </span>
       </div>
     </header>
 
@@ -274,11 +309,14 @@
           <div id="choise_sara" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <div id="choise_reza" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <div id="choise_hokuto" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
+          <div id="choise_dori" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <div id="choise_risa" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <div id="choise_kokuse" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <div id="choise_ei" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <div id="choise_yae" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <!--leef-->
+          <div id="choise_korei" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
+          <div id="choise_texinari" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <!--ice-->
           <div id="choise_gaia" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
           <div id="choise_dyona" class="a_mem_image lazyload" onclick="membar_tap(this)"></div>
@@ -360,14 +398,8 @@
     <div id="sinsei_ok" class="mdc-snackbar">
       <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
         <div class="mdc-snackbar__label" aria-atomic="false">
-          申請を受け付けました
+          申請中です。反映には時間がかかりますので、。
         </div>
-        <!--div class="mdc-snackbar__actions" aria-atomic="true">
-            <button type="button" class="mdc-button mdc-snackbar__action">
-            <div class="mdc-button__ripple"></div>
-            <span class="mdc-button__label">Retry</span>
-            </button>
-        </div-->
       </div>
     </div>
 

@@ -277,6 +277,10 @@ function send_team(){
             text: team_exp,
             time: firebase.firestore.Timestamp.now()
         }
+        // snackbarを開きます
+        snackbar.open();
+        //作成のdivを非表示にする
+        open_dialog_fab_back();
         // gifの入力がある場合cloudstorageにアップロード
         if(file){
             var filePath = 'teamGifs/' + documentId;
@@ -304,16 +308,13 @@ function send_team(){
     }
     var result = Promise.all(promises).then((values) => {
         console.log(values);
-        //作成のdivを非表示にする
-        open_dialog_fab_back();
         //global_user_database;
-        snackbar.open();
     });
     return result;
 }
 
-//チームの投稿ができたら表示する
-const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
+//チームの投稿ができたら表示する「申請を受け付けました」
+const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('#sinsei_ok'));
 
 //ボタンはdisabledの変化じゃなくて別ボタンにしてdialogで何かしらの入力が必要であることを明記する
 //team cardのplaceholder
