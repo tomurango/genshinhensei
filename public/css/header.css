@@ -10,8 +10,10 @@ html{
     font-family: 'Noto Sans JP', sans-serif;
     background-color: #ffffff;
     /*overflow: hidden; safari ios バウンス対策でauto にするが、そもそもhidden にしていた深い理由が不明なため要注意*/
-    /*変えたあと試したけど、結局変化ないんすけどだいじょぶっすかねぇ*/
-    overflow: auto;
+    /*変えたあと試したけど、結局変化ないんすけどだいじょぶっすかねぇ 
+    fullscreen dialogで謎のバウンド挙動が確認され、 position relativeにするかhiddenを修正するかで治るか検討*/
+    overflow: hidden;
+    position: relative;
 }:root{
     --mdc-theme-primary: #003366;
     --mdc-theme-secondary: #663300;

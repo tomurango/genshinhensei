@@ -275,7 +275,8 @@ function send_team(){
             list: team_list,
             name: team_name,
             text: team_exp,
-            time: firebase.firestore.Timestamp.now()
+            time: firebase.firestore.Timestamp.now(),
+            tweetTimes: 0,
         }
         // snackbarを開きます
         snackbar.open();
