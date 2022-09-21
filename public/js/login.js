@@ -80,6 +80,8 @@ $(document).ready(function(){
                 } else {
                     // No user is signed in.
                     console.log("No user is signed in");
+                    //ログイン用のfabを表示する
+                    document.getElementById("to_login_fab").style.display = "flex";
                 }
             });
         }
@@ -109,6 +111,8 @@ function signedin_collect(userinfo){
     document.getElementById("logout_button").style.display = "inline-block";
     //投稿用のfabを表示する
     document.getElementById("open_dialog_fab").style.display = "flex";
+    //ログイン用のfabを非表示する
+    document.getElementById("to_login_fab").style.display = "none";
 }
 
 //tabの見た目を変える

@@ -12,7 +12,7 @@ html{
     /*overflow: hidden; safari ios バウンス対策でauto にするが、そもそもhidden にしていた深い理由が不明なため要注意*/
     /*変えたあと試したけど、結局変化ないんすけどだいじょぶっすかねぇ 
     fullscreen dialogで謎のバウンド挙動が確認され、 position relativeにするかhiddenを修正するかで治るか検討*/
-    overflow: hidden;
+    overflow: auto;
     position: relative;
 }:root{
     --mdc-theme-primary: #003366;
@@ -22,10 +22,9 @@ html{
 #top_header{
     position: relative;
     box-shadow: 0 2px 5px rgba(0,33,66);
-    height: 96px;
 }
 .header_text{
-    position: absolute;
+    position: relative;
     font-size: 0.1em;
     margin-right: 10px;
 }
@@ -61,7 +60,10 @@ html{
         box-shadow: none;
     }#open_dialog_fab{
         left: 480px;
-    }main{
+    }#to_login_fab{
+        left: 480px;
+    }
+    main{
         width: 60%;
         min-width: 500px;
         position: relative;
@@ -88,8 +90,7 @@ html{
     }#create_area_two{
         width: calc(30% - 32px);
     }.header_text{
-        top: 56px;
-        left: 16px;
+        margin: 0 16px;
     }
     /*
     #create_area_three{
@@ -107,6 +108,8 @@ html{
         display: none;
     }#open_dialog_fab{
         right: 16px;
+    }#to_login_fab{
+        right: 16px;
     }
     #card_container{
         flex-direction: column;
@@ -119,8 +122,7 @@ html{
         display: flex;
         flex-direction: column;
     }.header_text{
-        top: 48px;
-        left: 8px;
+        margin: 0 8px;
     }
 }.top_level_page{
     width: 100%;
@@ -139,6 +141,10 @@ html{
     position: fixed;
     bottom: 16px;
     background-color: var(--mdc-theme-primary);
+}#to_login_fab{
+    position: fixed;
+    bottom: 16px;
+    background-color: #757575;
 }
 
 #card_container{
@@ -246,20 +252,21 @@ html{
 
 #choice_membar_dialog{
     position: fixed;
+    padding: 48px 0px 0px 0px;
+    box-sizing: border-box;
     height: 100%;
     width: 100%;
     left: 0px;
     z-index: 6;
     top: 0px;
     background-color: #ffffff;
-    padding: 48px 0px 0px 0px;
-    box-sizing: border-box;
     flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
 }#cara_dia_wrapper{
     height: calc(100vh - 48px);
     overflow-y: scroll;
+    padding-bottom: 100px;
+    box-sizing: border-box;
 }#cara_dia_wrapper_board{
     position: relative;
     padding: 0px;

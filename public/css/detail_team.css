@@ -6,6 +6,8 @@
     position: relative;
     text-align: left;
     display: flex;
+    padding-bottom: 100px;
+    box-sizing: border-box;
 }
 #detail_team_imgcont{
     position: relative;
@@ -67,8 +69,10 @@
         float: right;
     }#detail_one{
         width: 60%;
+        height: fit-content;
     }#detail_two{
         width: 40%;
+        height: fit-content;
     }
 }
 /*smart phone etc*/

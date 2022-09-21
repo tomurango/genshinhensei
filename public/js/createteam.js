@@ -317,6 +317,10 @@ function send_team(){
 //チームの投稿ができたら表示する「申請を受け付けました」
 const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('#sinsei_ok'));
 
+
+/* ログインしたらチーム投稿できるよボタンを出す */
+var to_login_dialog = new mdc.dialog.MDCDialog(document.querySelector('#to_login_dialog'));
+
 //ボタンはdisabledの変化じゃなくて別ボタンにしてdialogで何かしらの入力が必要であることを明記する
 //team cardのplaceholder
 //team detail の content
