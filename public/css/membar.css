@@ -89,11 +89,15 @@
     background-image: url(../images/membar_icons/korei.jpg);
 }#choise_texinari{
     background-image: url(../images/membar_icons/texinari.jpg);
+}#choise_nahida{
+    background-image: url(../images/membar_icons/nahida.jpeg);
 }
 
 /*ice*/
 #choise_gaia{
     background-image: url(../images/membar_icons/gaia.jpg);
+}#choise_reira{
+    background-image: url(../images/membar_icons/reira.jpeg);
 }#choise_dyona{
     background-image: url(../images/membar_icons/dyona.jpg);
 }#choise_tyouun{
