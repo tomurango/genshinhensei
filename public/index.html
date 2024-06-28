@@ -44,16 +44,32 @@
       <script defer src="/__/firebase/9.6.0/firebase-messaging-compat.js"></script>
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
+      <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+      // Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAqbAz1YSh7npBEzlQMD6ecP6ooBMN_CBM",
+          authDomain: "genshinhensei.app",
+          projectId: "genshinhensei",
+          storageBucket: "genshinhensei.appspot.com",
+          messagingSenderId: "211790794719",
+          appId: "1:211790794719:web:e4113687f9b2602ff07e6a",
+          measurementId: "G-FH4VTFRW48"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      });
+    </script>
 
     <!--material cdn-->
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <!--material icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--jquery-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     
     <link href="css/header.css" rel="stylesheet">
